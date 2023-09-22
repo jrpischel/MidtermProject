@@ -21,10 +21,10 @@ USE `ridefinderDB` ;
 DROP TABLE IF EXISTS `user` ;
 
 CREATE TABLE IF NOT EXISTS `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `enabled` TINYINT NULL,
+  `enabled` TINYINT NOT NULL,
   `role` VARCHAR(45) NULL,
   UNIQUE INDEX `user_name_UNIQUE` (`username` ASC),
   PRIMARY KEY (`id`))
@@ -70,7 +70,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ridefinderDB`;
-INSERT INTO `user` (`username`, `password`, `id`, `enabled`, `role`) VALUES ('admin', 'password', 1, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`) VALUES (1, 'admin', 'password', 1, NULL);
 
 COMMIT;
 
