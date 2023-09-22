@@ -9,5 +9,9 @@
 <body>
 <h1>Ride Finder</h1>
 
+<p>${ SMOKETEST }</p>
+
+
+<p>hmmm</p>
 </body>
 </html>

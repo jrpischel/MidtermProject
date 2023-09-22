@@ -1,5 +1,7 @@
 package com.skilldistillery.ridefinder.data;
 
-public interface UserDAO {
+import com.skilldistillery.ridefinder.entities.User;
 
+public interface UserDAO {
+	User authenticateUser(User user);
 }
