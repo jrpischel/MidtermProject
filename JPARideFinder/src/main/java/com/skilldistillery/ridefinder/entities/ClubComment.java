@@ -146,13 +146,15 @@ public class ClubComment {
 		return id == other.id;
 	}
 
-	
+
 	@Override
 	public String toString() {
-		return "ClubContent [id=" + id + ", comment=" + comment + ", pictureUrl=" + pictureUrl + ", enabled=" + enabled
-				+ ", createDate=" + createDate + ", inreplyId=" + inreplyId + "]";
-	}  
+		return "ClubComment [id=" + id + ", userId=" + userId + ", comment=" + comment + ", pictureUrl=" + pictureUrl
+				+ ", enabled=" + enabled + ", createDate=" + createDate + ", inreplyId=" + inreplyId + ", clubId="
+				+ clubId + "]";
+	}
+
 	
-	
+
 }
 

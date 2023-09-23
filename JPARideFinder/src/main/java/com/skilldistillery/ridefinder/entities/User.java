@@ -262,16 +262,7 @@ public class User {
 
 
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoURL=" + photoURL
-				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", createDate="
-				+ createDate + ", lastUpdate=" + lastUpdate + ", rides=" + rides + ", clubs=" + clubs
-				+ ", culbComments=" + culbComments + ", rideComments=" + rideComments + ", userComments=" + userComments
-				+ ", recipientComments=" + recipientComments + ", ridePhotos=" + ridePhotos + ", address=" + address
-				+ "]";
-	}
+
 
 	@Override
 	public int hashCode() {
@@ -288,6 +279,14 @@ public class User {
 			return false;
 		User other = (User) obj;
 		return id == other.id;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoURL=" + photoURL
+				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", createDate="
+				+ createDate + ", lastUpdate=" + lastUpdate + ", address=" + address + "]";
 	}
 
 	
