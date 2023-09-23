@@ -24,7 +24,7 @@ public class Club {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private int userId;	
+	private Club userId;	
 	
 	private String name;
 	
@@ -47,6 +47,16 @@ public class Club {
 	
 	
 	public Club() {}
+
+
+	public Club getUserId() {
+		return userId;
+	}
+
+
+	public void setUserId(Club userId) {
+		this.userId = userId;
+	}
 
 
 	public int getId() {

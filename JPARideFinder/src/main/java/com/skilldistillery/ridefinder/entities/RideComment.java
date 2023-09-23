@@ -21,10 +21,10 @@ public class RideComment {
 	private int id;
 	@ManyToOne
 	@JoinColumn(name="ride_id")
-	private int rideId;
+	private Ride rideId;
 	@ManyToOne
 	@JoinColumn(name="user_id")
-	private int userId;
+	private User userId;
 	
 	private String comment;
 	
@@ -47,16 +47,16 @@ public class RideComment {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getRideId() {
+	public Ride getRideId() {
 		return rideId;
 	}
-	public void setRideId(int rideId) {
+	public void setRideId(Ride rideId) {
 		this.rideId = rideId;
 	}
-	public int getUserId() {
+	public User getUserId() {
 		return userId;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 	public String getComment() {

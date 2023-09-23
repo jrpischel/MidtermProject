@@ -5,8 +5,23 @@
   	
   <!-- Begin Entities -->
 
-  	<class> com.skilldistillery.ridefinder.entities.User </class>
-  	<class> com.skilldistillery.ridefinder.entities.UserComment </class>
+  	<class> com.skilldistillery.ridefinder.entities.Address</class>
+  	
+  	<class> com.skilldistillery.ridefinder.entities.Club</class>
+  	<class> com.skilldistillery.ridefinder.entities.ClubComment</class>
+  	
+  	<class> com.skilldistillery.ridefinder.entities.Ride</class>
+  	<class> com.skilldistillery.ridefinder.entities.RideComment</class>
+  	<class> com.skilldistillery.ridefinder.entities.RidePhoto</class>
+  	
+  	<class> com.skilldistillery.ridefinder.entities.SkillLevel</class>
+  	
+  	<class> com.skilldistillery.ridefinder.entities.User</class>
+  	<class> com.skilldistillery.ridefinder.entities.UserComment</class>
+  	
+
+
+  	
   	
 
   	<!-- End Entities -->

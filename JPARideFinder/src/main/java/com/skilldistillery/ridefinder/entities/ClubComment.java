@@ -26,7 +26,7 @@ public class ClubComment {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private int userId;
+	private User userId;
 	
 	private String comment;
 	
@@ -44,7 +44,7 @@ public class ClubComment {
 
 	@ManyToOne
 	@JoinColumn(name = "club_id")
-	private int clubId;
+	private Club clubId;
 	
 	@OneToMany(mappedBy = "clubId")
 	private List<ClubComment> clubComments;
@@ -52,6 +52,37 @@ public class ClubComment {
 	public int getId() {
 		return id;
 	}
+
+	
+	public User getUserId() {
+		return userId;
+	}
+
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
+
+
+	public Club getClubId() {
+		return clubId;
+	}
+
+
+	public void setClubId(Club clubId) {
+		this.clubId = clubId;
+	}
+
+
+	public List<ClubComment> getClubComments() {
+		return clubComments;
+	}
+
+
+	public void setClubComments(List<ClubComment> clubComments) {
+		this.clubComments = clubComments;
+	}
+
 
 	public void setId(int id) {
 		this.id = id;

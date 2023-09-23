@@ -24,9 +24,9 @@ public class UserComment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name = "user_id")
-	private int userID;
-	
+//	@Column(name = "user_id")
+//	private int userID;
+//	
 	private String comment;
 	
 	@Column(name = "picture_url")
@@ -40,7 +40,7 @@ public class UserComment {
 	
 	@ManyToOne
 	@JoinColumn(name = "recipient_id")
-	private int recipientId;
+	private User recipientId;
 	
 	private boolean shared;
 	
@@ -67,13 +67,7 @@ public class UserComment {
 		this.id = id;
 	}
 
-	public int getUserID() {
-		return userID;
-	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
 
 	public String getComment() {
 		return comment;
@@ -115,11 +109,11 @@ public class UserComment {
 		this.shared = shared;
 	}
 
-	public int getRecipientId() {
+	public User getRecipientId() {
 		return recipientId;
 	}
 
-	public void setRecipientId(int recipientId) {
+	public void setRecipientId(User recipientId) {
 		this.recipientId = recipientId;
 	}
 
@@ -149,9 +143,9 @@ public class UserComment {
 
 	@Override
 	public String toString() {
-		return "UserComment [id=" + id + ", userID=" + userID + ", comment=" + comment + ", pictureURL=" + pictureURL
-				+ ", enabled=" + enabled + ", createDate=" + createDate + ", recipientId=" + recipientId + ", shared="
-				+ shared + ", userId=" + userId + ", userComment=" + userComment + ", userReplies=" + userReplies + "]";
+		return "UserComment [id=" + id + ", comment=" + comment + ", pictureURL=" + pictureURL + ", enabled=" + enabled
+				+ ", createDate=" + createDate + ", recipientId=" + recipientId + ", shared=" + shared + ", userId="
+				+ userId + ", userComment=" + userComment + ", userReplies=" + userReplies + "]";
 	}
 
 	@Override
