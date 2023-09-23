@@ -20,11 +20,11 @@ public class RideComment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(name = "ride_id")
-	private int rideId;
-	
 	@ManyToOne
-	@JoinColumn(name = "user_id")
+	@JoinColumn(name="ride_id")
+	private int rideId;
+	@ManyToOne
+	@JoinColumn(name="user_id")
 	private int userId;
 
 	private String comment;

@@ -3,6 +3,7 @@ package com.skilldistillery.ridefinder.entities;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -12,10 +13,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+
 
 @Entity
 public class Ride {
@@ -31,17 +34,23 @@ public class Ride {
 	private LocalDate startDate;
 
 	private String duration;
+
 	
 	@Column(name = "club_id")
+
+	@ManyToOne
+	@JoinColumn(name = "club_id")
+
 	private int clubId;
 	
 	@OneToOne
-	@Column(name = "start_address_id")
-	private int startAddressId;
+	@JoinColumn(name = "start_address_id")
+	private Address startAddressId;
 	
-	@Column(name = "end_address_id")
-	private int endAddressId;
-	
+	@OneToOne
+	@JoinColumn(name = "end_address_id")
+	private Address endAddressId;
+
 	@CreationTimestamp
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
@@ -53,17 +62,17 @@ public class Ride {
 	private String description;
 	@Column(name = "banner_url")
 	private String bannerURL;
-	@Column(name = "skill_level_id")
+	
+	@ManyToOne
+	@JoinColumn(name = "skill_level_id")
 	private int skillLevelId;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private int userId;
 	@Column(name = "photo_url")
 	private String photoURL;
-	
-	
-	
-	
+	@OneToMany(mappedBy="rideId")
+	private List<RideComment> rideComments;
 	
 
 	public Ride() {
@@ -118,19 +127,19 @@ public class Ride {
 		this.clubId = clubId;
 	}
 
-	public int getStartAddressId() {
+	public Address getStartAddressId() {
 		return startAddressId;
 	}
 
-	public void setStartAddressId(int startAddressId) {
+	public void setStartAddressId(Address startAddressId) {
 		this.startAddressId = startAddressId;
 	}
 
-	public int getEndAddressId() {
+	public Address getEndAddressId() {
 		return endAddressId;
 	}
 
-	public void setEndAddressId(int endAddressId) {
+	public void setEndAddressId(Address endAddressId) {
 		this.endAddressId = endAddressId;
 	}
 
