@@ -141,12 +141,7 @@ public class UserComment {
 		this.userReplies = userReplies;
 	}
 
-	@Override
-	public String toString() {
-		return "UserComment [id=" + id + ", comment=" + comment + ", pictureURL=" + pictureURL + ", enabled=" + enabled
-				+ ", createDate=" + createDate + ", recipientId=" + recipientId + ", shared=" + shared + ", userId="
-				+ userId + ", userComment=" + userComment + ", userReplies=" + userReplies + "]";
-	}
+	
 
 	@Override
 	public int hashCode() {
@@ -163,6 +158,13 @@ public class UserComment {
 			return false;
 		UserComment other = (UserComment) obj;
 		return id == other.id;
+	}
+
+	@Override
+	public String toString() {
+		return "UserComment [id=" + id + ", comment=" + comment + ", pictureURL=" + pictureURL + ", enabled=" + enabled
+				+ ", createDate=" + createDate + ", recipientId=" + recipientId + ", shared=" + shared + ", userId="
+				+ userId + ", userComment=" + userComment + "]";
 	}
 	
 	

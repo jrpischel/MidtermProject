@@ -108,6 +108,7 @@ public class Address {
 		return "Address [id=" + id + ", street=" + street + ", city=" + city + ", state=" + state + ", zip=" + zip
 				+ ", description=" + description + ", enabled=" + enabled + "]";
 	}
+
 	
 	
 }

@@ -29,6 +29,7 @@ public class RidePhoto {
 	@CreationTimestamp
 	private LocalDateTime createDate;
 
+	
 	private String caption;
 
 	@ManyToOne

@@ -162,10 +162,13 @@ public class Club {
 
 	@Override
 	public String toString() {
-		return "Club [id=" + id + ", name=" + name + ", photoUrl=" + photoUrl + ", enabled=" + enabled
-				+ ", description=" + description + ", shared=" + shared + ", createDate=" + createDate + ", lastUpdate="
-				+ lastUpdate + "]";
+		return "Club [id=" + id + ", userId=" + userId + ", name=" + name + ", photoUrl=" + photoUrl + ", enabled="
+				+ enabled + ", description=" + description + ", shared=" + shared + ", createDate=" + createDate
+				+ ", lastUpdate=" + lastUpdate + "]";
 	}
+
+
+	
 	
 	
 	
