@@ -69,7 +69,7 @@ public class User {
 	@OneToMany(mappedBy = "userId")
 	private List<RideComment> rideComments;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(mappedBy = "userComment")
 	private List<UserComment> userComments;
 	
 	@OneToMany(mappedBy = "recipientId")

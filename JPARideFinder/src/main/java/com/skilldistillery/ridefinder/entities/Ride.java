@@ -26,20 +26,26 @@ public class Ride {
 	private String name;
 	@Column(name = "start_time")
 	private LocalTime startTime;
+	
 	@Column(name = "start_date")
 	private LocalDate startDate;
 
 	private String duration;
+	
 	@Column(name = "club_id")
 	private int clubId;
+	
 	@OneToOne
 	@Column(name = "start_address_id")
 	private int startAddressId;
+	
 	@Column(name = "end_address_id")
 	private int endAddressId;
+	
 	@CreationTimestamp
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
+	
 	@UpdateTimestamp
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
@@ -54,6 +60,9 @@ public class Ride {
 	private int userId;
 	@Column(name = "photo_url")
 	private String photoURL;
+	
+	
+	
 	
 	
 

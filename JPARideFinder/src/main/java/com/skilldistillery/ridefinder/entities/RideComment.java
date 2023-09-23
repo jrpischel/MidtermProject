@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,77 +19,100 @@ public class RideComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="ride_id")
+
+	@Column(name = "ride_id")
 	private int rideId;
-	@Column(name="user_id")
+	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
 	private int userId;
-	
+
 	private String comment;
-	
-	@Column(name="picture_url")
+
+	@Column(name = "picture_url")
 	private String pictureURL;
-	
+
 	private boolean enabled;
-	@Column(name="create_date")
+	
+	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	@Column(name="inreply_id")
+	
+	@Column(name = "inreply_id")
 	private int replyId;
+
 	public RideComment() {
 		super();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public int getRideId() {
 		return rideId;
 	}
+
 	public void setRideId(int rideId) {
 		this.rideId = rideId;
 	}
+
 	public int getUserId() {
 		return userId;
 	}
+
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
+
 	public String getComment() {
 		return comment;
 	}
+
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
 	public String getPictureURL() {
 		return pictureURL;
 	}
+
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
 	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
+
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
 	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
+
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
+
 	public int getReplyId() {
 		return replyId;
 	}
+
 	public void setReplyId(int replyId) {
 		this.replyId = replyId;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -99,6 +124,7 @@ public class RideComment {
 		RideComment other = (RideComment) obj;
 		return id == other.id;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -108,6 +134,5 @@ public class RideComment {
 				.append(replyId).append("]");
 		return builder.toString();
 	}
-	
-	
+
 }
