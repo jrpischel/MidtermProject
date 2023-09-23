@@ -75,14 +75,7 @@ public class User {
 	@OneToMany(mappedBy = "recipientId")
 	private List<UserComment> recipientComments;
 	
-<<<<<<< HEAD
-//	@OneToMany(mappedBy = "")
-//	private List<Rider> riders;
-	
-	@OneToMany(mappedBy = "")
-=======
 	@OneToMany(mappedBy = "userId")
->>>>>>> ac2e9fcf76b88f87f589d50331d327b926f4226a
 	private List<RidePhoto> ridePhotos;
 	
 	@OneToOne
