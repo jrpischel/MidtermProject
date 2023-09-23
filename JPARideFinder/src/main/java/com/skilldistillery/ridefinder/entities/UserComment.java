@@ -40,13 +40,13 @@ public class UserComment {
 	
 	@ManyToOne
 	@JoinColumn(name = "recipient_id")
-	private int recipientID;
+	private int recipientId;
 	
 	private boolean shared;
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User user;
+	private User userId;
 	
 	@ManyToOne
 	@JoinColumn(name = "inreply_id")
@@ -107,14 +107,6 @@ public class UserComment {
 		this.createDate = createDate;
 	}
 
-	public int getRecipientID() {
-		return recipientID;
-	}
-
-	public void setRecipientID(int recipientID) {
-		this.recipientID = recipientID;
-	}
-
 	public boolean isShared() {
 		return shared;
 	}
@@ -123,8 +115,44 @@ public class UserComment {
 		this.shared = shared;
 	}
 
+	public int getRecipientId() {
+		return recipientId;
+	}
 
-	
+	public void setRecipientId(int recipientId) {
+		this.recipientId = recipientId;
+	}
+
+	public User getUserId() {
+		return userId;
+	}
+
+	public void setUserId(User userId) {
+		this.userId = userId;
+	}
+
+	public UserComment getUserComment() {
+		return userComment;
+	}
+
+	public void setUserComment(UserComment userComment) {
+		this.userComment = userComment;
+	}
+
+	public List<UserComment> getUserReplies() {
+		return userReplies;
+	}
+
+	public void setUserReplies(List<UserComment> userReplies) {
+		this.userReplies = userReplies;
+	}
+
+	@Override
+	public String toString() {
+		return "UserComment [id=" + id + ", userID=" + userID + ", comment=" + comment + ", pictureURL=" + pictureURL
+				+ ", enabled=" + enabled + ", createDate=" + createDate + ", recipientId=" + recipientId + ", shared="
+				+ shared + ", userId=" + userId + ", userComment=" + userComment + ", userReplies=" + userReplies + "]";
+	}
 
 	@Override
 	public int hashCode() {

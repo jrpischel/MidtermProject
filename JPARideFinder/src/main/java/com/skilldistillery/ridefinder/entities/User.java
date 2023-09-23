@@ -9,7 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -45,7 +47,7 @@ public class User {
 	private String lastName;
 	
 	@Column(name = "address_id")
-	private int addressID;
+	private int addressId;
 	
 	@Column(name = "create_date")
 	@CreationTimestamp
@@ -55,30 +57,43 @@ public class User {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 	
-	@OneToMany(mappedBy = "")
+	@OneToMany(mappedBy = "userId")
 	private List<Ride> rides;
 	
 	@OneToMany(mappedBy = "userId")
 	private List<Club> clubs;
 	
-	@OneToMany(mappedBy = "UserId")
+	@OneToMany(mappedBy = "userId")
 	private List<ClubComment> culbComments;
 	
-	@OneToMany(mappedBy = "")
+	@OneToMany(mappedBy = "userId")
 	private List<RideComment> rideComments;
 	
 	@OneToMany(mappedBy = "user")
 	private List<UserComment> userComments;
 	
-	@OneToMany(mappedBy = "recipientID")
+	@OneToMany(mappedBy = "recipientId")
 	private List<UserComment> recipientComments;
 	
+<<<<<<< HEAD
 //	@OneToMany(mappedBy = "")
 //	private List<Rider> riders;
 	
 	@OneToMany(mappedBy = "")
+=======
+	@OneToMany(mappedBy = "userId")
+>>>>>>> ac2e9fcf76b88f87f589d50331d327b926f4226a
 	private List<RidePhoto> ridePhotos;
 	
+	@OneToOne
+	@JoinColumn(name="address_id")
+	private Address address;
+	
+//	@OneToMany(mappedBy = "")
+//	private List<Rider> riders;
+	
+//	@OneToMany(mappedBy = "")
+//	private List<ClubMember> clubMembers;
 	
 
 	public User() {
@@ -173,12 +188,12 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getAddressID() {
-		return addressID;
+	public int getAddressId() {
+		return addressId;
 	}
 
-	public void setAddressID(int addressID) {
-		this.addressID = addressID;
+	public void setAddressID(int addressId) {
+		this.addressId = addressId;
 	}
 
 	public LocalDateTime getCreateDate() {
@@ -195,6 +210,85 @@ public class User {
 
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	public List<Ride> getRides() {
+		return rides;
+	}
+
+	public void setRides(List<Ride> rides) {
+		this.rides = rides;
+	}
+
+	public List<Club> getClubs() {
+		return clubs;
+	}
+
+	public void setClubs(List<Club> clubs) {
+		this.clubs = clubs;
+	}
+
+	public List<ClubComment> getCulbComments() {
+		return culbComments;
+	}
+
+	public void setCulbComments(List<ClubComment> culbComments) {
+		this.culbComments = culbComments;
+	}
+
+	public List<RideComment> getRideComments() {
+		return rideComments;
+	}
+
+	public void setRideComments(List<RideComment> rideComments) {
+		this.rideComments = rideComments;
+	}
+
+	public List<UserComment> getUserComments() {
+		return userComments;
+	}
+
+	public void setUserComments(List<UserComment> userComments) {
+		this.userComments = userComments;
+	}
+
+	public List<UserComment> getRecipientComments() {
+		return recipientComments;
+	}
+
+	public void setRecipientComments(List<UserComment> recipientComments) {
+		this.recipientComments = recipientComments;
+	}
+
+	public List<RidePhoto> getRidePhotos() {
+		return ridePhotos;
+	}
+
+	public void setRidePhotos(List<RidePhoto> ridePhotos) {
+		this.ridePhotos = ridePhotos;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public void setAddressId(int addressId) {
+		this.addressId = addressId;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
+				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoURL=" + photoURL
+				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", addressId="
+				+ addressId + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + ", rides=" + rides
+				+ ", clubs=" + clubs + ", culbComments=" + culbComments + ", rideComments=" + rideComments
+				+ ", userComments=" + userComments + ", recipientComments=" + recipientComments + ", ridePhotos="
+				+ ridePhotos + ", address=" + address + "]";
 	}
 
 	@Override
@@ -214,12 +308,5 @@ public class User {
 		return id == other.id;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoURL=" + photoURL
-				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", addressID="
-				+ addressID + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + "]";
-	}
-
+	
 }
