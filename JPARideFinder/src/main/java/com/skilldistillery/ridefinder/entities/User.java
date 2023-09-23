@@ -1,6 +1,7 @@
 package com.skilldistillery.ridefinder.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -52,6 +54,32 @@ public class User {
 	@Column(name = "last_update")
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
+	
+	@OneToMany(mappedBy = "")
+	private List<Ride> rides;
+	
+	@OneToMany(mappedBy = "userId")
+	private List<Club> clubs;
+	
+	@OneToMany(mappedBy = "UserId")
+	private List<ClubComment> culbComments;
+	
+	@OneToMany(mappedBy = "")
+	private List<RideComment> rideComments;
+	
+	@OneToMany(mappedBy = "user")
+	private List<UserComment> userComments;
+	
+	@OneToMany(mappedBy = "recipientID")
+	private List<UserComment> recipientComments;
+	
+	@OneToMany(mappedBy = "")
+	private List<Rider> riders;
+	
+	@OneToMany(mappedBy = "")
+	private List<RidePhoto> ridePhotos;
+	
+	
 
 	public User() {
 		
