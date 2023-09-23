@@ -19,6 +19,7 @@ public class RideComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+
 	@ManyToOne
 	@JoinColumn(name="ride_id")
 	private Ride rideId;
@@ -26,27 +27,32 @@ public class RideComment {
 	@JoinColumn(name="user_id")
 	private User userId;
 	
+
 	private String comment;
-	
-	@Column(name="picture_url")
+
+	@Column(name = "picture_url")
 	private String pictureURL;
-	
+
 	private boolean enabled;
-	@Column(name="create_date")
+	
+	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	@Column(name="inreply_id")
+	
+	@Column(name = "inreply_id")
 	private int replyId;
-	
-	
+
 	public RideComment() {
 		super();
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public Ride getRideId() {
 		return rideId;
 	}
@@ -59,40 +65,52 @@ public class RideComment {
 	public void setUserId(User userId) {
 		this.userId = userId;
 	}
+
 	public String getComment() {
 		return comment;
 	}
+
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+
 	public String getPictureURL() {
 		return pictureURL;
 	}
+
 	public void setPictureURL(String pictureURL) {
 		this.pictureURL = pictureURL;
 	}
+
 	public boolean isEnabled() {
 		return enabled;
 	}
+
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
 	public LocalDateTime getCreateDate() {
 		return createDate;
 	}
+
 	public void setCreateDate(LocalDateTime createDate) {
 		this.createDate = createDate;
 	}
+
 	public int getReplyId() {
 		return replyId;
 	}
+
 	public void setReplyId(int replyId) {
 		this.replyId = replyId;
 	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -104,6 +122,7 @@ public class RideComment {
 		RideComment other = (RideComment) obj;
 		return id == other.id;
 	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -113,6 +132,5 @@ public class RideComment {
 				.append(replyId).append("]");
 		return builder.toString();
 	}
-	
-	
+
 }

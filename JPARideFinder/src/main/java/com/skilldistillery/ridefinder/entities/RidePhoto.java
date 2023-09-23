@@ -12,39 +12,33 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
-@Table(name="ride_photo")
+@Table(name = "ride_photo")
 public class RidePhoto {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="photo_url")
+
+	@Column(name = "photo_url")
 	private String photoURL;
-	
-	@Column(name="create_date")
+
+	@Column(name = "create_date")
+	@CreationTimestamp
 	private LocalDateTime createDate;
-	
+
 	private String caption;
-	
-//	@ManyToOne
-//	@JoinColumn(name="ride_id")
-//	private Ride ride;
-//	
-//	@ManyToOne
-//	@JoinColumn(name="ride_id")
-//	private User user;
-	
-	//OR
-	
-	@Column(name= "ride_id")
-	private int rideID;
-	
-	@Column(name= "user_id")
-	private int userID;
-	
-	
+
+	@ManyToOne
+	@JoinColumn(name = "ride_id")
+	private Ride ride;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private User user;
+
 	private boolean enabled;
 
 	public RidePhoto() {
@@ -83,42 +77,24 @@ public class RidePhoto {
 		this.caption = caption;
 	}
 
-//	public Ride getRide() {
-//		return ride;
-//	}
-//
-//	public void setRide(Ride ride) {
-//		this.ride = ride;
-//	}
-//
-//	public User getUser() {
-//		return user;
-//	}
-//
-//	public void setUser(User user) {
-//		this.user = user;
-//	}
-	
-	
+	public Ride getRide() {
+		return ride;
+	}
+
+	public void setRide(Ride ride) {
+		this.ride = ride;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	public boolean isEnabled() {
 		return enabled;
-	}
-
-	public int getRideID() {
-		return rideID;
-	}
-
-	public void setRideID(int rideID) {
-		this.rideID = rideID;
-	}
-
-	public int getUserID() {
-		return userID;
-	}
-
-	public void setUserID(int userID) {
-		this.userID = userID;
 	}
 
 	public void setEnabled(boolean enabled) {
@@ -145,9 +121,7 @@ public class RidePhoto {
 	@Override
 	public String toString() {
 		return "RidePhoto [id=" + id + ", photoURL=" + photoURL + ", createDate=" + createDate + ", caption=" + caption
-				+ ", rideID=" + rideID + ", userID=" + userID + ", enabled=" + enabled + "]";
+				+ ", ride=" + ride + ", user=" + user + ", enabled=" + enabled + "]";
 	}
-	
-	
-	
+
 }
