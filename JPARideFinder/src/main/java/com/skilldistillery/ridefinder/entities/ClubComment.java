@@ -1,6 +1,7 @@
 package com.skilldistillery.ridefinder.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,7 +9,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 @Entity
 @Table(name = "club_comment")
@@ -18,9 +24,9 @@ public class ClubComment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-//	TODO foreign key
-//	@Column(name = "user_id")
-//	private int userId;
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private int userId;
 	
 	private String comment;
 	
@@ -29,16 +35,19 @@ public class ClubComment {
 	
 	private boolean enabled;
 	
+	@CreationTimestamp
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
 	
 	@Column(name = "inreply_id")
 	private Integer inreplyId;
 
-//	TODO foreign key
-//	@Column(name = "club_id")
-//	private int clubId;
+	@ManyToOne
+	@JoinColumn(name = "club_id")
+	private int clubId;
 	
+	@OneToMany(mappedBy = "clubId")
+	private List<ClubComment> clubComments;
 	
 	public int getId() {
 		return id;

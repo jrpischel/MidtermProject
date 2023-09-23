@@ -73,8 +73,8 @@ public class User {
 	@OneToMany(mappedBy = "recipientID")
 	private List<UserComment> recipientComments;
 	
-	@OneToMany(mappedBy = "")
-	private List<Rider> riders;
+//	@OneToMany(mappedBy = "")
+//	private List<Rider> riders;
 	
 	@OneToMany(mappedBy = "")
 	private List<RidePhoto> ridePhotos;
