@@ -17,12 +17,12 @@ public class UserController {
 	@RequestMapping(path = {"/", "home.do"} )
 	private String goHome(Model model) {
 		
-//		User TESTUSER = new User();
-//		
-//		TESTUSER.setUsername("admin");
-//		TESTUSER.setPassword("password");
-//		
-//		model.addAttribute("SMOKETEST", userDAO.authenticateUser(TESTUSER));
+		User TESTUSER = new User();
+		
+		TESTUSER.setUsername("admin");
+		TESTUSER.setPassword("password");
+	//	userDAO.authenticateUser(TESTUSER);
+		model.addAttribute("SMOKETEST", userDAO.authenticateUser(TESTUSER));
 		return "home";
 	}
 

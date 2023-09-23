@@ -69,7 +69,7 @@ public class SkillLevel {
 	public String toString() {
 		return "SkillLevel [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
-	
+
 	
 	
 	

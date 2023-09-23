@@ -30,8 +30,8 @@ public class Ride {
 	@Column(name = "start_time")
 	private LocalTime startTime;
 	
-	@Column(name = "start_date")
-	private LocalDate startDate;
+	@Column(name = "ride_date")
+	private LocalDate rideDate;
 
 	private String duration;
 
@@ -74,6 +74,9 @@ public class Ride {
 	private List<RideComment> rideComments;
 	
 
+	
+	
+
 	public Ride() {
 		super();
 	}
@@ -102,13 +105,24 @@ public class Ride {
 		this.startTime = startTime;
 	}
 
-	public LocalDate getStartDate() {
-		return startDate;
+	
+
+	public LocalDate getRideDate() {
+		return rideDate;
 	}
 
-	public void setStartDate(LocalDate startDate) {
-		this.startDate = startDate;
+	public void setRideDate(LocalDate rideDate) {
+		this.rideDate = rideDate;
 	}
+
+	public List<RideComment> getRideComments() {
+		return rideComments;
+	}
+
+	public void setRideComments(List<RideComment> rideComments) {
+		this.rideComments = rideComments;
+	}
+
 
 	public String getDuration() {
 		return duration;
@@ -217,15 +231,16 @@ public class Ride {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("Ride [id=").append(id).append(", name=").append(name).append(", startTime=").append(startTime)
-				.append(", startDate=").append(startDate).append(", duration=").append(duration).append(", clubId=")
-				.append(clubId).append(", startAddressId=").append(startAddressId).append(", endAddressId=")
-				.append(endAddressId).append(", createDate=").append(createDate).append(", lastUpdate=")
-				.append(lastUpdate).append(", description=").append(description).append(", bannerURL=")
-				.append(bannerURL).append(", skillLevelId=").append(skillLevelId).append(", userId=").append(userId)
-				.append(", photoURL=").append(photoURL).append("]");
-		return builder.toString();
+		return "Ride [id=" + id + ", name=" + name + ", startTime=" + startTime + ", rideDate=" + rideDate
+				+ ", duration=" + duration + ", clubId=" + clubId + ", startAddressId=" + startAddressId
+				+ ", endAddressId=" + endAddressId + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate
+				+ ", description=" + description + ", bannerURL=" + bannerURL + ", skillLevelId=" + skillLevelId
+				+ ", userId=" + userId + ", photoURL=" + photoURL + "]";
 	}
+
+	
+
+
+
 
 }

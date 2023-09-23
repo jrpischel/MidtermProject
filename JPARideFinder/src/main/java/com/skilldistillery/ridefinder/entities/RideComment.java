@@ -1,6 +1,7 @@
 package com.skilldistillery.ridefinder.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -38,9 +40,15 @@ public class RideComment {
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
 	
-	@Column(name = "inreply_id")
-	private int replyId;
-
+	@ManyToOne
+	@JoinColumn(name = "inreply_id")
+	private RideComment replyId;
+	
+	
+	@OneToMany(mappedBy= "replyId")
+	private List<RideComment> rideReplies;
+	
+	
 	public RideComment() {
 		super();
 	}
@@ -98,12 +106,22 @@ public class RideComment {
 		this.createDate = createDate;
 	}
 
-	public int getReplyId() {
+	
+
+	public RideComment getReplyId() {
 		return replyId;
 	}
 
-	public void setReplyId(int replyId) {
+	public void setReplyId(RideComment replyId) {
 		this.replyId = replyId;
+	}
+
+	public List<RideComment> getRideReplies() {
+		return rideReplies;
+	}
+
+	public void setRideReplies(List<RideComment> rideReplies) {
+		this.rideReplies = rideReplies;
 	}
 
 	@Override
@@ -125,12 +143,13 @@ public class RideComment {
 
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("RideComment [id=").append(id).append(", rideId=").append(rideId).append(", userId=")
-				.append(userId).append(", comment=").append(comment).append(", pictureURL=").append(pictureURL)
-				.append(", enabled=").append(enabled).append(", createDate=").append(createDate).append(", replyId=")
-				.append(replyId).append("]");
-		return builder.toString();
+		return "RideComment [id=" + id + ", rideId=" + rideId + ", userId=" + userId + ", comment=" + comment
+				+ ", pictureURL=" + pictureURL + ", enabled=" + enabled + ", createDate=" + createDate + ", replyId="
+				+ replyId + "]";
 	}
 
+	
+	
+
+	
 }
