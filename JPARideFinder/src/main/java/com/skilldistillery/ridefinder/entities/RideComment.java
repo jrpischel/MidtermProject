@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +19,11 @@ public class RideComment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
-	@Column(name="ride_id")
+	@ManyToOne
+	@JoinColumn(name="ride_id")
 	private int rideId;
-	@Column(name="user_id")
+	@ManyToOne
+	@JoinColumn(name="user_id")
 	private int userId;
 	
 	private String comment;
@@ -33,6 +36,8 @@ public class RideComment {
 	private LocalDateTime createDate;
 	@Column(name="inreply_id")
 	private int replyId;
+	
+	
 	public RideComment() {
 		super();
 	}
