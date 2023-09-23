@@ -35,12 +35,9 @@ public class Ride {
 
 	private String duration;
 
-	
-	@Column(name = "club_id")
 
 	@ManyToOne
 	@JoinColumn(name = "club_id")
-
 	private Club clubId;
 
 	@OneToOne
