@@ -35,13 +35,13 @@ public class Ride {
 
 	private String duration;
 
-	
-	
+
 
 	@ManyToOne
 	@JoinColumn(name = "club_id")
-	private int clubId;
-	
+	private Club clubId;
+
+
 	@OneToOne
 	@JoinColumn(name = "start_address_id")
 	private Address startAddressId;
@@ -64,10 +64,10 @@ public class Ride {
 	
 	@ManyToOne
 	@JoinColumn(name = "skill_level_id")
-	private int skillLevelId;
+	private SkillLevel skillLevelId;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private int userId;
+	private User userId;
 	@Column(name = "photo_url")
 	private String photoURL;
 	@OneToMany(mappedBy="rideId")
@@ -118,11 +118,11 @@ public class Ride {
 		this.duration = duration;
 	}
 
-	public int getClubId() {
+	public Club getClubId() {
 		return clubId;
 	}
 
-	public void setClubId(int clubId) {
+	public void setClubId(Club clubId) {
 		this.clubId = clubId;
 	}
 
@@ -174,19 +174,19 @@ public class Ride {
 		this.bannerURL = bannerURL;
 	}
 
-	public int getSkillLevelId() {
+	public SkillLevel getSkillLevelId() {
 		return skillLevelId;
 	}
 
-	public void setSkillLevelId(int skillLevelId) {
+	public void setSkillLevelId(SkillLevel skillLevelId) {
 		this.skillLevelId = skillLevelId;
 	}
 
-	public int getUserId() {
+	public User getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(User userId) {
 		this.userId = userId;
 	}
 

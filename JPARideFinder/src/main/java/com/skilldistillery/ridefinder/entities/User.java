@@ -46,9 +46,7 @@ public class User {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@Column(name = "address_id")
-	private int addressId;
-	
+
 	@Column(name = "create_date")
 	@CreationTimestamp
 	private LocalDateTime createDate;
@@ -75,7 +73,7 @@ public class User {
 	@OneToMany(mappedBy = "recipientId")
 	private List<UserComment> recipientComments;
 	
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "user")
 	private List<RidePhoto> ridePhotos;
 	
 	@OneToOne
@@ -181,13 +179,6 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public int getAddressId() {
-		return addressId;
-	}
-
-	public void setAddressID(int addressId) {
-		this.addressId = addressId;
-	}
 
 	public LocalDateTime getCreateDate() {
 		return createDate;
@@ -269,19 +260,17 @@ public class User {
 		this.address = address;
 	}
 
-	public void setAddressId(int addressId) {
-		this.addressId = addressId;
-	}
+
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
 				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoURL=" + photoURL
-				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", addressId="
-				+ addressId + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate + ", rides=" + rides
-				+ ", clubs=" + clubs + ", culbComments=" + culbComments + ", rideComments=" + rideComments
-				+ ", userComments=" + userComments + ", recipientComments=" + recipientComments + ", ridePhotos="
-				+ ridePhotos + ", address=" + address + "]";
+				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", createDate="
+				+ createDate + ", lastUpdate=" + lastUpdate + ", rides=" + rides + ", clubs=" + clubs
+				+ ", culbComments=" + culbComments + ", rideComments=" + rideComments + ", userComments=" + userComments
+				+ ", recipientComments=" + recipientComments + ", ridePhotos=" + ridePhotos + ", address=" + address
+				+ "]";
 	}
 
 	@Override

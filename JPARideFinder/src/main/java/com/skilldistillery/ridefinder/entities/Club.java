@@ -8,6 +8,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
 public class Club {
@@ -17,10 +22,9 @@ public class Club {
 	private int id;
 	
 	
-//	TODO foreign key
-//	@Column(name = "user_id")
-//	private int userId;	
-	
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	private Club userId;	
 	
 	private String name;
 	
@@ -33,14 +37,26 @@ public class Club {
 	
 	private boolean shared;
 	
+	@CreationTimestamp
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
 	
+	@UpdateTimestamp
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
 	
 	
 	public Club() {}
+
+
+	public Club getUserId() {
+		return userId;
+	}
+
+
+	public void setUserId(Club userId) {
+		this.userId = userId;
+	}
 
 
 	public int getId() {
