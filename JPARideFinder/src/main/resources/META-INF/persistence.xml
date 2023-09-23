@@ -6,6 +6,7 @@
   <!-- Begin Entities -->
 
   	<class> com.skilldistillery.ridefinder.entities.User </class>
+  	<class> com.skilldistillery.ridefinder.entities.UserComment </class>
   	
 
   	<!-- End Entities -->
