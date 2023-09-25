@@ -65,7 +65,7 @@ class UserCommentTest {
 	@Test
 	void test_UserComment_UserId_ManyToOne_Relationship_Mapping() {
 		assertNotNull(userComment);
-		assertEquals("admin", userComment.getUserId().getUsername());
+		assertEquals("admin", userComment.getUser().getUsername());
 
 	}
 	
