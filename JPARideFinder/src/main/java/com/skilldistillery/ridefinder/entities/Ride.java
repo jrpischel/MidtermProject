@@ -232,7 +232,7 @@ public class Ride {
 	@Override
 	public String toString() {
 		return "Ride [id=" + id + ", name=" + name + ", startTime=" + startTime + ", rideDate=" + rideDate
-				+ ", duration=" + duration + ", clubId=" + clubId + ", startAddressId=" + startAddressId
+				+ ", duration=" + duration + ", startAddressId=" + startAddressId
 				+ ", endAddressId=" + endAddressId + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate
 				+ ", description=" + description + ", bannerURL=" + bannerURL + ", skillLevelId=" + skillLevelId
 				+ ", userId=" + userId + ", photoURL=" + photoURL + "]";
