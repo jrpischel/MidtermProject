@@ -13,10 +13,11 @@
       
       <c:choose>
 	  <c:when test="${!empty loggedInUser}">
-	  <h3>Welcome ${loggedInUser.firstName}</h3>
+	  <h3>Welcome ${loggedInUser.firstName}</h3><br>
 	  
 	   <a class="navbar-brand" href="account.do">Account info</a>
 	   <a class="navbar-brand" href="logout.do">Logout</a>
+	   <a class="navbar-brand" href="updateAccountForm.do">Update Account</a>
 	  </c:when>
 	  
 	  <c:otherwise>

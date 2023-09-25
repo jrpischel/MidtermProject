@@ -35,6 +35,9 @@ public class User {
 	@Column(name = "first_name")
 	private String firstName;
 	
+	@Column(name = "last_name")
+	private String lastName;
+	
 	private String nickname;
 	
 	@Column(name = "photo_url")
@@ -44,8 +47,6 @@ public class User {
 	
 	private boolean shared;
 	
-	@Column(name = "last_name")
-	private String lastName;
 	
 
 	@Column(name = "create_date")

@@ -15,11 +15,11 @@
 <h1>Update your account</h1>
 	<br>
 
-<form action="updateAccount.do" method="post">
+<form action="updateAccount.do" method="GET">
 	
 			<input type="hidden" name="id" value="${user.id}">
 
-			<label for="Username">Username:</label>
+			<label for="username">Username:</label>
 			<input type="text" name="username" id="username" value="${user.username}" required>
 
 			<br>
@@ -29,7 +29,7 @@
 
 			<br>
 			<br>
-			<label for="lasstName">Last Name:</label>
+			<label for="lastName">Last Name:</label>
 			<input type="text" name="lastName" id="lastName" value="${user.lastName}">
 
 
@@ -69,7 +69,6 @@
 </form>
 <br>
 <br>
-<p>Contact the Database Admin Team to change or add a picture of your user.
 <jsp:include page="bootstrapFoot.jsp"/>
 </body>
 </html>
