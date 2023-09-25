@@ -9,10 +9,14 @@
   	
   	<class> com.skilldistillery.ridefinder.entities.Club</class>
   	<class> com.skilldistillery.ridefinder.entities.ClubComment</class>
+  	<class> com.skilldistillery.ridefinder.entities.ClubMember</class>
+  	<class> com.skilldistillery.ridefinder.entities.ClubMemberId</class>
   	
   	<class> com.skilldistillery.ridefinder.entities.Ride</class>
   	<class> com.skilldistillery.ridefinder.entities.RideComment</class>
   	<class> com.skilldistillery.ridefinder.entities.RidePhoto</class>
+  	<class> com.skilldistillery.ridefinder.entities.Rider</class>
+  	<class> com.skilldistillery.ridefinder.entities.RiderId</class>
   	
   	<class> com.skilldistillery.ridefinder.entities.SkillLevel</class>
   	

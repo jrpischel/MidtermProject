@@ -84,8 +84,8 @@ public class User {
 //	@OneToMany(mappedBy = "")
 //	private List<Rider> riders;
 	
-//	@OneToMany(mappedBy = "")
-//	private List<ClubMember> clubMembers;
+	@OneToMany(mappedBy = "user")
+	private List<Club> clubMembers;
 	
 
 	public User() {
@@ -232,6 +232,25 @@ public class User {
 		this.clubs = clubs;
 	}
 
+	public void addClub(Club club) {
+		if (clubs == null) { clubs = new ArrayList<>();}
+		if( ! clubs.contains(club)) {
+			clubs.add(club);
+			if (club.getUser() != null) {
+				club.getUser().removeClub(club);
+			}
+			club.setUser(null);
+		}
+	}
+	
+	public void removeClub(Club club) {
+		if (clubs != null && clubs.contains(club)) {
+			clubs.remove(club);
+			club.setUser(null);
+		}
+	}
+
+
 	public List<ClubComment> getClubComments() {
 		return clubComments;
 	}
@@ -239,6 +258,26 @@ public class User {
 	public void setClubComments(List<ClubComment> clubComments) {
 		this.clubComments = clubComments;
 	}
+	
+
+	public void addClubComment(ClubComment comment) {
+		if (clubComments == null) { clubComments = new ArrayList<>();}
+		if( ! clubComments.contains(comment)) {
+			clubComments.add(comment);
+			if (comment.getUser() != null) {
+				comment.getUser().removeClubComment(comment);
+			}
+			comment.setUser(null);
+		}
+	}
+	
+	public void removeClubComment(ClubComment comment) {
+		if (clubComments != null && clubComments.contains(comment)) {
+			clubComments.remove(comment);
+			comment.setUser(null);
+		}
+	}
+
 
 	public List<RideComment> getRideComments() {
 		return rideComments;
@@ -247,6 +286,26 @@ public class User {
 	public void setRideComments(List<RideComment> rideComments) {
 		this.rideComments = rideComments;
 	}
+	
+
+	public void addRideComment(RideComment rideComment) {
+		if (rideComments == null) { rideComments = new ArrayList<>();}
+		if( ! rideComments.contains(rideComment)) {
+			rideComments.add(rideComment);
+			if (rideComment.getUser() != null) {
+				rideComment.getUser().removeRideComment(rideComment);
+			}
+			rideComment.setUser(null);
+		}
+	}
+	
+	public void removeRideComment(RideComment rideComment) {
+		if (rideComments != null && rideComments.contains(rideComment)) {
+			rideComments.remove(rideComment);
+			rideComment.setUser(null);
+		}
+	}
+
 
 	public List<UserComment> getUserComments() {
 		return userComments;
@@ -255,6 +314,26 @@ public class User {
 	public void setUserComments(List<UserComment> userComments) {
 		this.userComments = userComments;
 	}
+	
+
+	public void addUserComment(UserComment userComment) {
+		if (userComments == null) { userComments = new ArrayList<>();}
+		if( ! userComments.contains(userComment)) {
+			userComments.add(userComment);
+			if (userComment.getUser() != null) {
+				userComment.getUser().removeUserComment(userComment);
+			}
+			userComment.setUser(null);
+		}
+	}
+	
+	public void removeUserComment(UserComment userComment) {
+		if (userComments != null && userComments.contains(userComment)) {
+			userComments.remove(userComment);
+			userComment.setUser(null);
+		}
+	}
+
 
 	public List<UserComment> getRecipientComments() {
 		return recipientComments;
@@ -264,6 +343,24 @@ public class User {
 		this.recipientComments = recipientComments;
 	}
 
+	public void addRecipientComment(UserComment recipientComment) {
+		if (recipientComments == null) { recipientComments = new ArrayList<>();}
+		if( ! recipientComments.contains(recipientComment)) {
+			recipientComments.add(recipientComment);
+			if (recipientComment.getUser() != null) {
+				recipientComment.getUser().removeRecipientComment(recipientComment);
+			}
+			recipientComment.setUser(null);
+		}
+	}
+	
+	public void removeRecipientComment(UserComment recipientComment) {
+		if (recipientComments != null && recipientComments.contains(recipientComment)) {
+			recipientComments.remove(recipientComment);
+			recipientComment.setUser(null);
+		}
+	}
+
 	public List<RidePhoto> getRidePhotos() {
 		return ridePhotos;
 	}
@@ -271,6 +368,25 @@ public class User {
 	public void setRidePhotos(List<RidePhoto> ridePhotos) {
 		this.ridePhotos = ridePhotos;
 	}
+
+	public void addRidePhoto(RidePhoto ridePhoto) {
+		if (ridePhotos == null) { ridePhotos = new ArrayList<>();}
+		if( ! ridePhotos.contains(ridePhoto)) {
+			ridePhotos.add(ridePhoto);
+			if (ridePhoto.getUser() != null) {
+				ridePhoto.getUser().removeRidePhoto(ridePhoto);
+			}
+			ridePhoto.setUser(null);
+		}
+	}
+	
+	public void removeRidePhoto(RidePhoto ridePhoto) {
+		if (ridePhotos != null && ridePhotos.contains(ridePhoto)) {
+			ridePhotos.remove(ridePhoto);
+			ridePhoto.setUser(null);
+		}
+	}
+
 
 	public Address getAddress() {
 		return address;

@@ -46,7 +46,7 @@ public class UserComment {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User userId;
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name = "inreply_id")
@@ -117,12 +117,13 @@ public class UserComment {
 		this.recipientId = recipientId;
 	}
 
-	public User getUserId() {
-		return userId;
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public UserComment getUserComment() {
@@ -164,7 +165,7 @@ public class UserComment {
 	public String toString() {
 		return "UserComment [id=" + id + ", comment=" + comment + ", pictureURL=" + pictureURL + ", enabled=" + enabled
 				+ ", createDate=" + createDate + ", recipientId=" + recipientId + ", shared=" + shared + ", userId="
-				+ userId + ", userComment=" + userComment + "]";
+				+ user + ", userComment=" + userComment + "]";
 	}
 	
 	
