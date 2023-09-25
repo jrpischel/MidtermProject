@@ -1,14 +1,12 @@
 package com.skilldistillery.ridefinder.data;
 
-import java.util.Map;
-import java.util.Set;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.ridefinder.entities.Address;
 import com.skilldistillery.ridefinder.entities.User;
 
 @Service
@@ -46,6 +44,19 @@ public class UserDAOImpl implements UserDAO {
 		} catch (Exception e) {
 			System.err.println("Invalid User" + e);
 		}
+		return user;
+	}
+
+	@Override
+	public User createUserAccount(String userName, String password) {
+
+		User user = new User();
+		user.setUsername(userName);
+		user.setPassword(password);
+		
+		
+		em.persist(user);
+		
 		return user;
 	}
 

@@ -8,28 +8,25 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       
-      
-      
-      
-      
-      <!-- TODO  -->
-      <ul>
-       <li> <a class="navbar-brand" href="home.do">Home</a></li>
+   
+        <a class="navbar-brand" href="home.do">Home</a>
       
       <c:choose>
-	  <c:when test="${!empty sessionScope.user}">
-	  <h1>Welcome ${user.username}</h1>
+	  <c:when test="${!empty loggedInUser}">
+	  <h3>Welcome ${loggedInUser.firstName}</h3>
 	  
-	  <li> <a class="navbar-brand" href="account.do">Account info</a></li>
-	  <li> <a class="navbar-brand" href="logout.do">Logout</a></li>
+	   <a class="navbar-brand" href="account.do">Account info</a>
+	   <a class="navbar-brand" href="logout.do">Logout</a>
 	  </c:when>
 	  
 	  <c:otherwise>
-		  <li> <a class="navbar-brand" href="login.do">Login</a></li>
+		  <a class="navbar-brand" href="login.do">Login</a>
+		  <a class="navbar-brand" href="createAccount.do">Create Account</a>
+		  
 	
 	  </c:otherwise>
 	  </c:choose>
-      </ul>
+     
 ​
     </div>
   </div>
