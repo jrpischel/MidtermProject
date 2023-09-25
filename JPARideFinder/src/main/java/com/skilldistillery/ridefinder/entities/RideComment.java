@@ -23,7 +23,7 @@ public class RideComment {
 	private int id;
 
 	@ManyToOne
-	@JoinColumn(name="ride_id")
+	@JoinColumn(name = "ride_id")
 	private Ride rideId;
 	@ManyToOne
 	@JoinColumn(name="user_id")
@@ -36,7 +36,7 @@ public class RideComment {
 	private String pictureURL;
 
 	private boolean enabled;
-	
+
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
 	
@@ -64,9 +64,11 @@ public class RideComment {
 	public Ride getRideId() {
 		return rideId;
 	}
+
 	public void setRideId(Ride rideId) {
 		this.rideId = rideId;
 	}
+
 	
 	public User getUser() {
 		return user;
