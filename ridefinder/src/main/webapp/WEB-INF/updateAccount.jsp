@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
-
+<div class="container">
 <h1>Update your account</h1>
 	<br>
 
@@ -67,6 +67,7 @@
 
 
 </form>
+</div>
 <br>
 <br>
 <jsp:include page="bootstrapFoot.jsp"/>
