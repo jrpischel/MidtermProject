@@ -1,6 +1,7 @@
 package com.skilldistillery.ridefinder.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -24,7 +26,7 @@ public class Club {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private Club userId;	
+	private Club user;	
 	
 	private String name;
 	
@@ -44,19 +46,28 @@ public class Club {
 	@UpdateTimestamp
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
+
+	@OneToMany(mappedBy = "club")
+	private List<Ride> rides;
 	
 	
 	public Club() {}
 
 
-	public Club getUserId() {
-		return userId;
+
+
+	public Club getUser() {
+		return user;
 	}
 
 
-	public void setUserId(Club userId) {
-		this.userId = userId;
+
+
+	public void setUser(Club user) {
+		this.user = user;
 	}
+
+
 
 
 	public int getId() {
@@ -141,6 +152,20 @@ public class Club {
 	}
 
 
+	public List<Ride> getRides() {
+		return rides;
+	}
+
+
+
+
+	public void setRides(List<Ride> rides) {
+		this.rides = rides;
+	}
+
+
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -162,7 +187,7 @@ public class Club {
 
 	@Override
 	public String toString() {
-		return "Club [id=" + id + ", userId=" + userId + ", name=" + name + ", photoUrl=" + photoUrl + ", enabled="
+		return "Club [id=" + id + ", userId=" + user + ", name=" + name + ", photoUrl=" + photoUrl + ", enabled="
 				+ enabled + ", description=" + description + ", shared=" + shared + ", createDate=" + createDate
 				+ ", lastUpdate=" + lastUpdate + "]";
 	}
