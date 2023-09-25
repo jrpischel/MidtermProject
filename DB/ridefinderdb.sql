@@ -41,15 +41,15 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `enabled` TINYINT NOT NULL,
+  `enabled` TINYINT NOT NULL DEFAULT 1,
   `role` VARCHAR(45) NULL,
   `first_name` VARCHAR(45) NULL,
   `nickname` VARCHAR(45) NULL,
   `photo_url` VARCHAR(2000) NULL,
   `description` TEXT NULL,
-  `shared` TINYINT NOT NULL,
+  `shared` TINYINT NOT NULL DEFAULT 1,
   `last_name` VARCHAR(45) NULL,
-  `address_id` INT NOT NULL,
+  `address_id` INT NULL,
   `create_date` DATETIME NULL,
   `last_update` DATETIME NULL,
   UNIQUE INDEX `user_name_UNIQUE` (`username` ASC),
@@ -200,7 +200,7 @@ DROP TABLE IF EXISTS `club_member` ;
 CREATE TABLE IF NOT EXISTS `club_member` (
   `user_id` INT NOT NULL,
   `club_id` INT NOT NULL,
-  `administrator` TINYINT NOT NULL,
+  `administrator` TINYINT NOT NULL DEFAULT 0,
   `date_joined` DATETIME NULL,
   `nickname` VARCHAR(45) NULL,
   PRIMARY KEY (`user_id`, `club_id`),
@@ -363,7 +363,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ridefinderDB`;
-INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`, `description`, `enabled`) VALUES (1, NULL, 'Denver', 'Colorado', NULL, NULL, 1);
+INSERT INTO `address` (`id`, `street`, `city`, `state`, `zip`, `description`, `enabled`) VALUES (1, 'Harley shop', 'Denver', 'Colorado', NULL, NULL, 1);
 
 COMMIT;
 
