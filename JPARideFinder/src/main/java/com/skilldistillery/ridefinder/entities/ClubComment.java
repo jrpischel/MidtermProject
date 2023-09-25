@@ -26,7 +26,7 @@ public class ClubComment {
 	
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User userId;
+	private User user;
 	
 	private String comment;
 	
@@ -54,13 +54,13 @@ public class ClubComment {
 	}
 
 	
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 
@@ -149,7 +149,7 @@ public class ClubComment {
 
 	@Override
 	public String toString() {
-		return "ClubComment [id=" + id + ", userId=" + userId + ", comment=" + comment + ", pictureUrl=" + pictureUrl
+		return "ClubComment [id=" + id + ", userId=" + user + ", comment=" + comment + ", pictureUrl=" + pictureUrl
 				+ ", enabled=" + enabled + ", createDate=" + createDate + ", inreplyId=" + inreplyId + ", clubId="
 				+ clubId + "]";
 	}

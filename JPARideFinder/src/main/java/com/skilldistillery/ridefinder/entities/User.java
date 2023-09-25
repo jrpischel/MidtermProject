@@ -1,6 +1,7 @@
 package com.skilldistillery.ridefinder.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,16 +56,16 @@ public class User {
 	@UpdateTimestamp
 	private LocalDateTime lastUpdate;
 	
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "user")
 	private List<Ride> rides;
 	
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "user")
 	private List<Club> clubs;
 	
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "user")
 	private List<ClubComment> clubComments;
 	
-	@OneToMany(mappedBy = "userId")
+	@OneToMany(mappedBy = "user")
 	private List<RideComment> rideComments;
 	
 	@OneToMany(mappedBy = "userComment")
@@ -203,6 +204,25 @@ public class User {
 	public void setRides(List<Ride> rides) {
 		this.rides = rides;
 	}
+
+	public void addRide(Ride ride) {
+		if (rides == null) { rides = new ArrayList<>();}
+		if( ! rides.contains(ride)) {
+			rides.add(ride);
+			if (ride.getUser() != null) {
+				ride.getUser().removeRide(ride);
+			}
+			ride.setUser(null);
+		}
+	}
+	
+	public void removeRide(Ride ride) {
+		if (rides != null && rides.contains(ride)) {
+			rides.remove(ride);
+			ride.setUser(null);
+		}
+	}
+
 
 	public List<Club> getClubs() {
 		return clubs;

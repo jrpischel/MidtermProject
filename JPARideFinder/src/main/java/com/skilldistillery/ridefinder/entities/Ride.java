@@ -19,7 +19,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-
 @Entity
 public class Ride {
 	@Id
@@ -29,23 +28,20 @@ public class Ride {
 	private String name;
 	@Column(name = "start_time")
 	private LocalTime startTime;
-	
+
 	@Column(name = "ride_date")
 	private LocalDate rideDate;
 
 	private String duration;
 
-
-
 	@ManyToOne
 	@JoinColumn(name = "club_id")
-	private Club clubId;
-
+	private Club club;
 
 	@OneToOne
 	@JoinColumn(name = "start_address_id")
 	private Address startAddressId;
-	
+
 	@OneToOne
 	@JoinColumn(name = "end_address_id")
 	private Address endAddressId;
@@ -53,7 +49,7 @@ public class Ride {
 	@CreationTimestamp
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	
+
 	@UpdateTimestamp
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
@@ -61,21 +57,17 @@ public class Ride {
 	private String description;
 	@Column(name = "banner_url")
 	private String bannerURL;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "skill_level_id")
 	private SkillLevel skillLevelId;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
-	private User userId;
+	private User user;
 	@Column(name = "photo_url")
 	private String photoURL;
-	@OneToMany(mappedBy="rideId")
+	@OneToMany(mappedBy = "rideId")
 	private List<RideComment> rideComments;
-	
-
-	
-	
 
 	public Ride() {
 		super();
@@ -105,8 +97,6 @@ public class Ride {
 		this.startTime = startTime;
 	}
 
-	
-
 	public LocalDate getRideDate() {
 		return rideDate;
 	}
@@ -123,7 +113,6 @@ public class Ride {
 		this.rideComments = rideComments;
 	}
 
-
 	public String getDuration() {
 		return duration;
 	}
@@ -132,12 +121,12 @@ public class Ride {
 		this.duration = duration;
 	}
 
-	public Club getClubId() {
-		return clubId;
+	public Club getClub() {
+		return club;
 	}
 
-	public void setClubId(Club clubId) {
-		this.clubId = clubId;
+	public void setClub(Club club) {
+		this.club = club;
 	}
 
 	public Address getStartAddressId() {
@@ -196,12 +185,12 @@ public class Ride {
 		this.skillLevelId = skillLevelId;
 	}
 
-	public User getUserId() {
-		return userId;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getPhotoURL() {
@@ -232,15 +221,10 @@ public class Ride {
 	@Override
 	public String toString() {
 		return "Ride [id=" + id + ", name=" + name + ", startTime=" + startTime + ", rideDate=" + rideDate
-				+ ", duration=" + duration + ", clubId=" + clubId + ", startAddressId=" + startAddressId
+				+ ", duration=" + duration + ", clubId=" + club + ", startAddressId=" + startAddressId
 				+ ", endAddressId=" + endAddressId + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate
 				+ ", description=" + description + ", bannerURL=" + bannerURL + ", skillLevelId=" + skillLevelId
-				+ ", userId=" + userId + ", photoURL=" + photoURL + "]";
+				+ ", userId=" + user + ", photoURL=" + photoURL + "]";
 	}
-
-	
-
-
-
 
 }
