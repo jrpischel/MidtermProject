@@ -19,7 +19,6 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-
 @Entity
 public class Ride {
 	@Id
@@ -29,23 +28,20 @@ public class Ride {
 	private String name;
 	@Column(name = "start_time")
 	private LocalTime startTime;
-	
+
 	@Column(name = "ride_date")
 	private LocalDate rideDate;
 
 	private String duration;
 
-
-
 	@ManyToOne
 	@JoinColumn(name = "club_id")
 	private Club clubId;
 
-
 	@OneToOne
 	@JoinColumn(name = "start_address_id")
 	private Address startAddressId;
-	
+
 	@OneToOne
 	@JoinColumn(name = "end_address_id")
 	private Address endAddressId;
@@ -53,7 +49,7 @@ public class Ride {
 	@CreationTimestamp
 	@Column(name = "create_date")
 	private LocalDateTime createDate;
-	
+
 	@UpdateTimestamp
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
@@ -61,7 +57,7 @@ public class Ride {
 	private String description;
 	@Column(name = "banner_url")
 	private String bannerURL;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "skill_level_id")
 	private SkillLevel skillLevelId;
@@ -70,12 +66,8 @@ public class Ride {
 	private User userId;
 	@Column(name = "photo_url")
 	private String photoURL;
-	@OneToMany(mappedBy="rideId")
+	@OneToMany(mappedBy = "rideId")
 	private List<RideComment> rideComments;
-	
-
-	
-	
 
 	public Ride() {
 		super();
@@ -105,8 +97,6 @@ public class Ride {
 		this.startTime = startTime;
 	}
 
-	
-
 	public LocalDate getRideDate() {
 		return rideDate;
 	}
@@ -122,7 +112,6 @@ public class Ride {
 	public void setRideComments(List<RideComment> rideComments) {
 		this.rideComments = rideComments;
 	}
-
 
 	public String getDuration() {
 		return duration;
@@ -237,10 +226,5 @@ public class Ride {
 				+ ", description=" + description + ", bannerURL=" + bannerURL + ", skillLevelId=" + skillLevelId
 				+ ", userId=" + userId + ", photoURL=" + photoURL + "]";
 	}
-
-	
-
-
-
 
 }
