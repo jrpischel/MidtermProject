@@ -1,5 +1,8 @@
 package com.skilldistillery.ridefinder.data;
 
+import java.util.Map;
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -17,20 +20,33 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User authenticateUser(User user) {
-		
+
 		User authUser = null;
-		
+
 		String jpql = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.enabled = true";
-		
+
 		try {
-			authUser = em.createQuery(jpql, User.class)
-					.setParameter("un", user.getUsername())
-					.setParameter("pw", user.getPassword())
+			authUser = em.createQuery(jpql, User.class).setParameter("un", user.getUsername())
+					.setParameter("pw", user.getPassword()).getSingleResult();
+		} catch (Exception e) {
+			System.err.println("Invalid User" + e);
+		}
+
+		return authUser;
+	}
+
+	@Override
+	public User getUserByUserNameAndPassword(String userName, String password) {
+		User user = null;
+
+		String jpql = "SELECT u FROM User u WHERE u.username = :un AND u.password = :pw AND u.enabled = true";
+		try {
+			user = em.createQuery(jpql, User.class).setParameter("un", userName).setParameter("pw", password)
 					.getSingleResult();
 		} catch (Exception e) {
 			System.err.println("Invalid User" + e);
 		}
-		
-		return authUser;
+		return user;
 	}
+
 }

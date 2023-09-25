@@ -62,7 +62,7 @@ public class User {
 	private List<Club> clubs;
 	
 	@OneToMany(mappedBy = "userId")
-	private List<ClubComment> culbComments;
+	private List<ClubComment> clubComments;
 	
 	@OneToMany(mappedBy = "userId")
 	private List<RideComment> rideComments;
@@ -212,12 +212,12 @@ public class User {
 		this.clubs = clubs;
 	}
 
-	public List<ClubComment> getCulbComments() {
-		return culbComments;
+	public List<ClubComment> getClubComments() {
+		return clubComments;
 	}
 
-	public void setCulbComments(List<ClubComment> culbComments) {
-		this.culbComments = culbComments;
+	public void setClubComments(List<ClubComment> clubComments) {
+		this.clubComments = clubComments;
 	}
 
 	public List<RideComment> getRideComments() {
