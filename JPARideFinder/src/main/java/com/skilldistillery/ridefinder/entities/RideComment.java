@@ -26,8 +26,9 @@ public class RideComment {
 	@JoinColumn(name = "ride_id")
 	private Ride rideId;
 	@ManyToOne
-	@JoinColumn(name = "user_id")
-	private User userId;
+	@JoinColumn(name="user_id")
+	private User user;
+	
 
 	private String comment;
 
@@ -68,12 +69,13 @@ public class RideComment {
 		this.rideId = rideId;
 	}
 
-	public User getUserId() {
-		return userId;
+	
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(User userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getComment() {
@@ -145,7 +147,7 @@ public class RideComment {
 
 	@Override
 	public String toString() {
-		return "RideComment [id=" + id + ", rideId=" + rideId + ", userId=" + userId + ", comment=" + comment
+		return "RideComment [id=" + id + ", rideId=" + rideId + ", userId=" + user + ", comment=" + comment
 				+ ", pictureURL=" + pictureURL + ", enabled=" + enabled + ", createDate=" + createDate + ", replyId="
 				+ replyId + "]";
 	}
