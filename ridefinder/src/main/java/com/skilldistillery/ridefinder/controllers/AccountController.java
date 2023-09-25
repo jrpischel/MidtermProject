@@ -36,7 +36,7 @@ public class AccountController {
 	public String makeAccount(User user) {
 		
 		userDAO.createUserAccount(user.getUsername(), user.getPassword());
-		return "home";
+		return "account";
 	}
 }
 

@@ -23,7 +23,10 @@
 			<br>
 			<br>
 			<label for="name">Password</label>
-			<input type="text" name="password" id="name" required>
+			<input type="password" name="password" id="name" required>
+			
+			
+			
 
 			<br>
 			<input type="submit" />

@@ -54,6 +54,8 @@ public class UserDAOImpl implements UserDAO {
 		user.setUsername(userName);
 		user.setPassword(password);
 		
+		user.setEnabled(true);
+		user.setShared(true);
 		
 		em.persist(user);
 		
