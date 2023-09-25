@@ -200,7 +200,7 @@ DROP TABLE IF EXISTS `club_member` ;
 CREATE TABLE IF NOT EXISTS `club_member` (
   `user_id` INT NOT NULL,
   `club_id` INT NOT NULL,
-  `administrator` TINYINT NULL,
+  `administrator` TINYINT NOT NULL,
   `date_joined` DATETIME NULL,
   `nickname` VARCHAR(45) NULL,
   PRIMARY KEY (`user_id`, `club_id`),
@@ -425,7 +425,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ridefinderDB`;
-INSERT INTO `club_member` (`user_id`, `club_id`, `administrator`, `date_joined`, `nickname`) VALUES (1, 1, NULL, NULL, NULL);
+INSERT INTO `club_member` (`user_id`, `club_id`, `administrator`, `date_joined`, `nickname`) VALUES (1, 1, 0, '2023/09/25', 'Big Bill');
 
 COMMIT;
 
