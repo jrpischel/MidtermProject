@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `description` TEXT NULL,
   `shared` TINYINT NOT NULL DEFAULT 1,
   `last_name` VARCHAR(45) NULL,
-  `address_id` INT NOT NULL DEFAULT 1,
+  `address_id` INT NULL,
   `create_date` DATETIME NULL,
   `last_update` DATETIME NULL,
   UNIQUE INDEX `user_name_UNIQUE` (`username` ASC),
