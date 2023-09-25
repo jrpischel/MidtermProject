@@ -9,4 +9,5 @@ public interface UserDAO {
 	User authenticateUser(User user);
 	User getUserByUserNameAndPassword(String userName, String password);
 	User createUserAccount(String userName, String password);
+	User updateUser(User user);
 }

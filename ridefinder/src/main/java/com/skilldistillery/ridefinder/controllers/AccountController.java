@@ -55,6 +55,9 @@ public class AccountController {
 	@RequestMapping(path = "updateAccount.do", method = RequestMethod.GET)
 	public ModelAndView update(User user, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		
+		userDAO.updateUser(user);
+		session.setAttribute("loggedInUser", user);
 //		dao.update(pet.getId(), pet);
 //		mv.addObject("user", dao.findById(pet.getId()));
 		mv.setViewName("account");
