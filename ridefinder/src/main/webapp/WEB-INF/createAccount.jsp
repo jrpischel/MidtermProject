@@ -35,7 +35,6 @@
 
 
 </form>
-<p>Contact the Database Admin Team to have a picture of your new user added to their personal page.
 <jsp:include page="bootstrapFoot.jsp"/>
 </body>
 </html>

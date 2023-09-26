@@ -25,6 +25,7 @@
 			<br>
 	Last Name: <c:out value="${loggedInUser.getLastName()}" />
 			<br>
+
 	Nickname: <c:out value="${loggedInUser.getNickname()}" />
 			<br>
 	Joined Date: <c:out value="${loggedInUser.getCreateDate()}" />
@@ -72,6 +73,9 @@
 		<thead>
 			<th>Id</th>
 			<th>Ride Name</th>
+
+			<br>
+
 
 		</thead>
 		<tbody>

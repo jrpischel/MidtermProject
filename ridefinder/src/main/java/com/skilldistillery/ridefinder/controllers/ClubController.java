@@ -2,6 +2,8 @@ package com.skilldistillery.ridefinder.controllers;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.ridefinder.data.ClubDAO;
 import com.skilldistillery.ridefinder.entities.Club;
+import com.skilldistillery.ridefinder.entities.User;
 
 @Controller
 public class ClubController {
@@ -26,12 +29,27 @@ public class ClubController {
 		return "clubs";
 
 	}
+	
 
-	@RequestMapping(path = "createClub.do", method = RequestMethod.GET)
-	public ModelAndView createClub(Club newClub) {
+	@RequestMapping(path = "createClub.do")
+	public String createAccount() {
+		return "createClub";
+	}
+	
+	
+
+	@RequestMapping(path = "makeClub.do")
+	public ModelAndView createClub(Club newClub, HttpSession session) {
+		
 		ModelAndView mv = new ModelAndView();
-		clubDAO.create(newClub);
-		mv.setViewName("clubHome");
+		User clubOwner = (User) session.getAttribute("loggedInUser");
+		if(clubOwner != null) {
+			clubDAO.create(newClub, clubOwner);
+			mv.addObject("club", newClub);
+			mv.setViewName("clubHome");
+		}else {
+			mv.setViewName("redirect:createClub.do");
+		}
 		return mv;
 
 	}

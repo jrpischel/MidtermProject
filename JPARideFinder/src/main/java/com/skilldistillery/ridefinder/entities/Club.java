@@ -1,6 +1,7 @@
 package com.skilldistillery.ridefinder.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -55,13 +56,19 @@ public class Club {
 	public Club() {
 	}
 
+	
+
 	public User getUser() {
 		return user;
 	}
 
+
+
 	public void setUser(User user) {
 		this.user = user;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -127,17 +134,49 @@ public class Club {
 		this.lastUpdate = lastUpdate;
 	}
 
+
+
+	public List<ClubMember> getClubMembers() {
+		return clubMembers;
+	}
+
+	public void setClubMembers(List<ClubMember> clubMembers) {
+		this.clubMembers = clubMembers;
+	}
+
 	public List<Ride> getRides() {
 		return rides;
 	}
+
+
 
 	public void setRides(List<Ride> rides) {
 		this.rides = rides;
 	}
 
+
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	public void addClubMember(ClubMember clubMember) {
+		if (clubMembers == null) { clubMembers = new ArrayList<>();}
+		if( ! clubMembers.contains(clubMember)) {
+			clubMembers.add(clubMember);
+			if (clubMember.getClub() != null) {
+				clubMember.getClub().removeClubMember(clubMember);
+			}
+			clubMember.setClub(null);
+		}
+	}
+	
+	public void removeClubMember(ClubMember clubMember) {
+		if (clubMembers != null && clubMembers.contains(clubMember)) {
+			clubMembers.remove(clubMember);
+			clubMember.setClub(null);
+		}
 	}
 
 	@Override
