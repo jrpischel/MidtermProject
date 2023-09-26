@@ -19,24 +19,17 @@
 <div class="container">
 
 <jsp:include page="navbar.jsp"/>
-<h1>Ride Finder</h1>
+<h1>${ ride.name }</h1>
+<p>Ride Date: <strong>${ ride.rideDate }</strong></p>
+<h3>Description</h3>
+<p>${ride.description}</p>
+<img src="${ride.photoURL}">
 
 
-<p>${ SMOKETEST }</p>
 
-
-<!-- FOR TESTING RIDE VIEWS -->
-<!-- TODO: Make into a prettier list of ride displays -->
-<h1>Test Ride Views</h1>
-
-<c:forEach var="ride" items="${rides }">
-	<a href="rideDisplay.do?theRideId=${ride.id} ">${ride.name}</a>
-	<br>
-</c:forEach>
 
 
 <jsp:include page="bootstrapFoot.jsp"/>
 </div>
 </body>
 </html>
-

@@ -31,5 +31,15 @@ public class RideImpl implements RideDAO {
 	}
 
 
+	@Override
+	public Ride findById(int id) {
+		return em.find(Ride.class, id);
+	}
+
+	@Override
+	public List<Ride> findAllRides() {
+		String query = "SELECT rs FROM Ride rs";
+		return em.createQuery(query, Ride.class).getResultList();
+	}
 
 }
