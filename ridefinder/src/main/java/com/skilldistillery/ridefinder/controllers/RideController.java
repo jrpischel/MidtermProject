@@ -2,6 +2,7 @@ package com.skilldistillery.ridefinder.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -56,6 +57,15 @@ public class RideController {
 		return "home";
 	}
 
+	@RequestMapping(path = "rideDisplay.do")
+	public String rideDisplay(Model model, int theRideId) {
+		
+		Ride ride = rideDAO.findById(theRideId);
+		
+		model.addAttribute("ride", ride);
+		
+		return "displayRide";
+	}
 	
 	
 }
