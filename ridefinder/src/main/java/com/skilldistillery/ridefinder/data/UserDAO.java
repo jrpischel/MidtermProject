@@ -10,4 +10,5 @@ public interface UserDAO {
 	User getUserByUserNameAndPassword(String userName, String password);
 	User createUserAccount(String userName, String password);
 	User updateUser(User user);
+	User findById(int userId);
 }

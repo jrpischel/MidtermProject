@@ -23,7 +23,7 @@ public class ClubController {
 		List<Club> clubs = clubDAO.findAll();
 		model.addAttribute("club", clubs);
 
-		return "club";
+		return "clubs";
 
 	}
 

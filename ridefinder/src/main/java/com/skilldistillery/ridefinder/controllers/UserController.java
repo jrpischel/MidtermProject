@@ -33,6 +33,15 @@ public class UserController {
 		return "home";
 	}
 	
+	@RequestMapping(path = "account.do", method = RequestMethod.GET)
+	public ModelAndView findById(int userId) {
+		ModelAndView mv = new ModelAndView();
+		User user = userDAO.findById(userId);
+		mv.addObject("user", user);
+		mv.setViewName("home");
+		return mv;
+	}
+	
 	
 
 }
