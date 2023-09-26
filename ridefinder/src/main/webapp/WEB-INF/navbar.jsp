@@ -18,6 +18,8 @@
 	   <a class="navbar-brand" href="account.do">Account info</a>
 	   <a class="navbar-brand" href="logout.do">Logout</a>
 	   <a class="navbar-brand" href="updateAccountForm.do">Update Account</a>
+	   <a class="navbar-brand" href="createRide.do">Make Ride</a>
+	   
 	  </c:when>
 	  
 	  <c:otherwise>

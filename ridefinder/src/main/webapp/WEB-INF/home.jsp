@@ -24,7 +24,7 @@
 <p>${ SMOKETEST }</p>
 
 
-<p>hmmm</p>
+
 
 <jsp:include page="bootstrapFoot.jsp"/>
 </div>

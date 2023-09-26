@@ -27,14 +27,28 @@ public class RideController {
 	}
 	
 	@RequestMapping(path = "makeRideForm.do", method = RequestMethod.GET)
-	public String makeRideForm(int skillLevel,String city, String state, Ride ride) {
+	public String makeRideForm(int skillLevelId, 
+			String street,
+			String city,
+			String state, 
+			String zip,
+			Ride ride) {
 	
 		System.out.println("#########" + ride );
-		SkillLevel level = rideDAO.findSkill(skillLevel);
-		ride.setSkillLevelId(level);
+		
+		
+		//System.out.println("#######" + "TIME :" + ride.getStartTime());
+		// LocalTime time = LocalTime.of(13, 44) 
+		
+		SkillLevel level = rideDAO.findSkill(skillLevelId);
+		ride.setSkillLevel(level);
 		Address newAddress = new Address();
+		newAddress.setStreet(street);
 		newAddress.setCity(city);
 		newAddress.setState(state);
+		newAddress.setZip(zip);
+		
+		
 		System.out.println("#########" + newAddress);
 		
 		 addressDAO.createAddress(newAddress);

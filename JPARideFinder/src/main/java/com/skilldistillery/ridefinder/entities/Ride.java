@@ -32,6 +32,7 @@ public class Ride {
 	@Column(name = "ride_date")
 	private LocalDate rideDate;
 
+
 	private String duration;
 
 	@ManyToOne
@@ -60,7 +61,7 @@ public class Ride {
 
 	@ManyToOne
 	@JoinColumn(name = "skill_level_id")
-	private SkillLevel skillLevelId;
+	private SkillLevel skillLevel;
 	@ManyToOne
 	@JoinColumn(name = "user_id")
 	private User user;
@@ -177,12 +178,12 @@ public class Ride {
 		this.bannerURL = bannerURL;
 	}
 
-	public SkillLevel getSkillLevelId() {
-		return skillLevelId;
+	public SkillLevel getSkillLevel() {
+		return skillLevel;
 	}
 
-	public void setSkillLevelId(SkillLevel skillLevelId) {
-		this.skillLevelId = skillLevelId;
+	public void setSkillLevel(SkillLevel skillLevel) {
+		this.skillLevel = skillLevel;
 	}
 
 	public User getUser() {
@@ -223,7 +224,7 @@ public class Ride {
 		return "Ride [id=" + id + ", name=" + name + ", startTime=" + startTime + ", rideDate=" + rideDate
 				+ ", duration=" + duration + ", startAddressId=" + startAddressId
 				+ ", endAddressId=" + endAddressId + ", createDate=" + createDate + ", lastUpdate=" + lastUpdate
-				+ ", description=" + description + ", bannerURL=" + bannerURL + ", skillLevelId=" + skillLevelId
+				+ ", description=" + description + ", bannerURL=" + bannerURL + ", skillLevel=" + skillLevel
 				+ ", userId=" + user + ", photoURL=" + photoURL + "]";
 	}
 
