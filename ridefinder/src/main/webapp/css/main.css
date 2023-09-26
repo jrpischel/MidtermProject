@@ -7,3 +7,13 @@ body {
 .container {
 	padding-top: 80px;
 }
+
+table,
+thead,
+tbody,
+th,
+tr,
+td {
+	border: solid black 1px;
+	border-spacing: 1px;
+}

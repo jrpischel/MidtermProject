@@ -1,5 +1,7 @@
 package com.skilldistillery.ridefinder.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -27,5 +29,7 @@ public class RideImpl implements RideDAO {
 	public SkillLevel findSkill(int level) {
 		return em.find(SkillLevel.class, level);
 	}
+
+
 
 }

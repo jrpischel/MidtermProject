@@ -35,6 +35,9 @@
 						<li class="nav-item">
 						<a class="navbar-brand" href="createRide.do">Make Ride</a>
 						</li>
+						<li class="nav-item">
+						<a class="navbar-brand" href="showRide.do">Show Rides</a>
+						</li>
 					</c:when>
 
 					<c:otherwise>
