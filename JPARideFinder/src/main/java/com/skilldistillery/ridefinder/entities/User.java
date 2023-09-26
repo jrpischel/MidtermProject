@@ -41,7 +41,7 @@ public class User {
 	private String nickname;
 	
 	@Column(name = "photo_url")
-	private String photoURL;
+	private String photoUrl;
 	
 	private String description;
 	
@@ -150,11 +150,11 @@ public class User {
 	}
 
 	public String getPhotoURL() {
-		return photoURL;
+		return photoUrl;
 	}
 
-	public void setPhotoURL(String photoURL) {
-		this.photoURL = photoURL;
+	public void setPhotoURL(String photoUrl) {
+		this.photoUrl = photoUrl;
 	}
 
 	public String getDescription() {
@@ -401,6 +401,22 @@ public class User {
 
 
 
+	public String getPhotoUrl() {
+		return photoUrl;
+	}
+
+	public void setPhotoUrl(String photoUrl) {
+		this.photoUrl = photoUrl;
+	}
+
+	public List<Club> getClubMembers() {
+		return clubMembers;
+	}
+
+	public void setClubMembers(List<Club> clubMembers) {
+		this.clubMembers = clubMembers;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -421,7 +437,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoURL=" + photoURL
+				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoUrl=" + photoUrl
 				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", createDate="
 				+ createDate + ", lastUpdate=" + lastUpdate + ", address=" + address + "]";
 	}

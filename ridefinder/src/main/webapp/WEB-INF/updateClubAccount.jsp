@@ -15,40 +15,24 @@
 <h1>Update your account</h1>
 	<br>
 
-<form action="updateAccount.do" method="GET">
+<form action="clubUpdate.do" method="GET">
 	
-			<input type="hidden" name="id" value="${user.id}">
+			<input type="hidden" name="id" value="${club.id}">
 
-			<label for="username">Username:</label>
-			<input type="text" name="username" id="username" value="${user.username}" required>
-
-			<br>
-			<br>
-			<label for="firstName">First Name:</label>
-			<input type="text" name="firstName" id="firstName" value="${user.firstName}">
-
-			<br>
-			<br>
-			<label for="lastName">Last Name:</label>
-			<input type="text" name="lastName" id="lastName" value="${user.lastName}">
-
-
-			<br>
-			<br>
-			<label for="nickname">Nickname:</label>
-			<input type="text" name="nickname" id="nickname" value="${user.nickname}">
+			<label for="name">Club Name:</label>
+			<input type="text" name="name" id="name" value="${club.name}" required>
 			
 			<br>
 			<br>
 			<label for="photoURL">Photo:</label>
-			<input type="text" name="photoURL" id="photoURL" value="${user.photoURL}">
+			<input type="text" name="photoURL" id="photoURL" value="${club.photoURL}">
 
 
 			<br>
 			<br>
 			<div class="input-group">
      		<span class="input-group-text">Description</span>
-     		<textarea class="form-control" aria-label="With textarea" name="description" id="description">${user.description}</textarea>
+     		<textarea class="form-control" aria-label="With textarea" name="description" id="description">${club.description}</textarea>
    			</div>
 
 			<br>
@@ -56,19 +40,19 @@
 			<%-- Address:
 			<div>
 			<label for="street">Street:</label>
-			<input type="text" name="street" id="street" value="${user.address.street}">
+			<input type="text" name="street" id="street" value="${club.address.street}">
    			</div>
 			<div>
 			<label for="city">City:</label>
-			<input type="text" name="city" id="city" value="${user.address.city}">
+			<input type="text" name="city" id="city" value="${club.address.city}">
    			</div>
 			<div>
 			<label for="state">State:</label>
-			<input type="text" name="state" id="state" value="${user.address.state}">
+			<input type="text" name="state" id="state" value="${club.address.state}">
    			</div>
 			<div>
 			<label for="zip">Zip Code:</label>
-			<input type="text" name="zip" id="zip" value="${user.address.zip}">
+			<input type="text" name="zip" id="zip" value="${club.address.zip}">
    			</div> --%>
 
 			<br>
