@@ -20,8 +20,11 @@
 
 <jsp:include page="navbar.jsp"/>
 <h1>${ ride.name }</h1>
+<p>Ride Date: <strong>${ ride.rideDate }</strong></p>
+<h3>Description</h3>
+<p>${ride.description}</p>
 <img src="${ride.photoURL}">
-<p></p>
+
 
 
 
