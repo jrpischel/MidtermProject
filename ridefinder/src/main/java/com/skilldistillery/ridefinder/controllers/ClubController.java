@@ -39,8 +39,8 @@ public class ClubController {
 	@RequestMapping(path = "clubUpdateForm.do", method = RequestMethod.GET, params = "clubId")
 	public ModelAndView updateClubForm(int clubId) {
 		ModelAndView mv = new ModelAndView();
-		//Club toUpdate = clubDAO.findById(clubId);
-		//mv.addObject("club", toUpdate);
+		Club toUpdate = clubDAO.findById(clubId);
+		mv.addObject("club", toUpdate);
 		mv.setViewName("updateClub");
 
 		return mv;

@@ -36,9 +36,7 @@ public class RideController {
 	
 		System.out.println("#########" + ride );
 		
-		
-		//System.out.println("#######" + "TIME :" + ride.getStartTime());
-		// LocalTime time = LocalTime.of(13, 44) 
+	
 		
 		SkillLevel level = rideDAO.findSkill(skillLevelId);
 		ride.setSkillLevel(level);
@@ -51,7 +49,7 @@ public class RideController {
 		
 		System.out.println("#########" + newAddress);
 		
-		 addressDAO.createAddress(newAddress);
+		addressDAO.createAddress(newAddress);
 		ride.setStartAddressId(newAddress);
 		rideDAO.createRide(ride);
 		
