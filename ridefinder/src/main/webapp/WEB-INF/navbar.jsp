@@ -30,10 +30,13 @@
 						<a class="navbar-brand" href="updateAccountForm.do">Update Account</a>
 						</li>
 						<li class="nav-item">
-						<a class="navbar-brand" href="createUpdateForm.do">Create Club</a>
+						<a class="navbar-brand" href="createClub.do">Create Club</a>
 						</li>
 						<li class="nav-item">
 						<a class="navbar-brand" href="createRide.do">Make Ride</a>
+						</li>
+						<li class="nav-item">
+						<a class="navbar-brand" href="showRide.do">Show Rides</a>
 						</li>
 					</c:when>
 

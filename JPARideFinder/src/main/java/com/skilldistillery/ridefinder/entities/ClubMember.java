@@ -113,4 +113,6 @@ public class ClubMember {
 		return Objects.equals(id, other.id);
 	}
 
+	
+
 }

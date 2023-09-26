@@ -30,6 +30,7 @@ public class RideImpl implements RideDAO {
 		return em.find(SkillLevel.class, level);
 	}
 
+
 	@Override
 	public Ride findById(int id) {
 		return em.find(Ride.class, id);
@@ -40,4 +41,5 @@ public class RideImpl implements RideDAO {
 		String query = "SELECT rs FROM Ride rs";
 		return em.createQuery(query, Ride.class).getResultList();
 	}
+
 }

@@ -24,7 +24,7 @@
 <br>
 <br>
 <div class="text-center">
-<img src="${club.photoURL}" class="img-fluid" alt="..."> 
+<img src="${club.photoUrl}" class="img-fluid" alt="..."> 
 </div>
 
 <div>
@@ -35,18 +35,16 @@
 <table class="table table-striped table-hover">
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Role</th>
 				<th>Nick Name</th>
+				
 			</tr>
 		</thead>
 		<tbody>
 
 			<c:forEach var="m" items="${club.clubMembers}">
 				<tr>
-					<td><a href="account.do?userId=${m.id}">${m.firstName}</a></td>
-					<td>${m.role}</td>
-					<td>${m.nickname}</td>
+					<td><a href="account.do?userId=${m.id}">${m.nickname}</a></td>
+					
 				</tr>
 			</c:forEach>
 
