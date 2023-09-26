@@ -20,6 +20,8 @@ public class AccountController {
 	@RequestMapping(path = "account.do")
 	public String account(HttpSession session) {
 		
+		
+		
 		if(session.getAttribute("loggedInUser") != null) {
 			return "account";
 		}else {
