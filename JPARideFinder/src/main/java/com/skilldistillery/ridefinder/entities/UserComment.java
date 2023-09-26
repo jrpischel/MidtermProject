@@ -30,7 +30,7 @@ public class UserComment {
 	private String comment;
 	
 	@Column(name = "picture_url")
-	private String pictureURL;
+	private String pictureUrl;
 	
 	private boolean enabled;
 	
@@ -78,11 +78,11 @@ public class UserComment {
 	}
 
 	public String getPictureURL() {
-		return pictureURL;
+		return pictureUrl;
 	}
 
-	public void setPictureURL(String pictureURL) {
-		this.pictureURL = pictureURL;
+	public void setPictureURL(String pictureUrl) {
+		this.pictureUrl = pictureUrl;
 	}
 
 	public boolean isEnabled() {
@@ -163,7 +163,7 @@ public class UserComment {
 
 	@Override
 	public String toString() {
-		return "UserComment [id=" + id + ", comment=" + comment + ", pictureURL=" + pictureURL + ", enabled=" + enabled
+		return "UserComment [id=" + id + ", comment=" + comment + ", pictureUrl=" + pictureUrl + ", enabled=" + enabled
 				+ ", createDate=" + createDate + ", recipientId=" + recipientId + ", shared=" + shared + ", userId="
 				+ user + ", userComment=" + userComment + "]";
 	}

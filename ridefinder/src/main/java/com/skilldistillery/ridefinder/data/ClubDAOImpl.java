@@ -1,5 +1,6 @@
 package com.skilldistillery.ridefinder.data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,40 +10,57 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.ridefinder.entities.Club;
+import com.skilldistillery.ridefinder.entities.ClubMember;
+import com.skilldistillery.ridefinder.entities.ClubMemberId;
+import com.skilldistillery.ridefinder.entities.User;
+
 @Service
 @Transactional
-public class ClubDAOImpl implements ClubDAO  {
+public class ClubDAOImpl implements ClubDAO {
 	@PersistenceContext
 	private EntityManager em;
-	
-	
+
 	@Override
 	public List<Club> findAll() {
 		List<Club> clubs = null;
 		String jpql = "SELECT c FROM Club c";
-		clubs = em.createQuery(jpql, Club.class)
-				.getResultList();
+		clubs = em.createQuery(jpql, Club.class).getResultList();
 		return clubs;
 	}
 
 	@Override
-	public Club create(Club newClub) {
-		em.persist(newClub);
-		
-		return newClub;
+	public Club create(Club newClub, User user) {
+		user = em.find(User.class, user.getId());
+		if (user != null) {
+			newClub.setUser(user);
+			em.persist(newClub);
+			ClubMember clubOwner = new ClubMember();
+			ClubMemberId id = new ClubMemberId(user.getId(), newClub.getId());
+			clubOwner.setId(id);
+			clubOwner.setClub(newClub);
+			clubOwner.setUser(user);
+			clubOwner.setAdministrator(true);
+			clubOwner.setNickname(user.getNickname());
+			em.persist(clubOwner);
+			List<ClubMember> members = new ArrayList<>();
+			members.add(clubOwner);
+			newClub.setClubMembers(members);
+			return newClub;
+		} 
+		return null;
 	}
 
 	@Override
 	public Club update(int id, Club updateClub) {
 		Club dbClub = em.find(Club.class, id);
-		if(dbClub != null) {
+		if (dbClub != null) {
 			dbClub.setName(updateClub.getName());
 			dbClub.setPhotoUrl(updateClub.getPhotoUrl());
 			dbClub.setDescription(updateClub.getDescription());
 			dbClub.setShared(updateClub.isShared());
-			
+
 		}
-		
+
 		return dbClub;
 	}
 
@@ -50,11 +68,11 @@ public class ClubDAOImpl implements ClubDAO  {
 	public boolean delete(int id) {
 		Club dbClub = em.find(Club.class, id);
 		boolean deleted = false;
-		if(dbClub != null) {
+		if (dbClub != null) {
 			em.remove(dbClub);
 			deleted = !em.contains(dbClub);
 		}
-		
+
 		return deleted;
 	}
 

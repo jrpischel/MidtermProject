@@ -23,6 +23,27 @@
 			<br>
 	Last Name: <c:out value="${loggedInUser.getLastName()}" />
 			<br>
+	<div>
+		<table class="table table-striped table-hover">
+		<thead>
+			<tr>
+				<th>Club Name</th>
+				
+			</tr>
+		</thead>
+		<tbody>
+
+			<c:forEach var="c" items="${user.clubs}">
+				<tr>
+					<td><a href="clubHome.do?clubId=${c.id}">${c.name}</a></td>
+					
+				</tr>
+			</c:forEach>
+
+		</tbody>
+		</table> 
+	</div>
+			<br>
 
 		</c:when>
 		<c:otherwise>
