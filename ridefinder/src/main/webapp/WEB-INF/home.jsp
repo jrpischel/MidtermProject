@@ -33,7 +33,7 @@
 <div class = "row">
 <c:forEach var="ride" items="${rides }">
 	<div class="col-12 col-md-6 col-lg-4">
-		<div class="card">
+		<div class="card" style="margin-bottom: 10px;">
 			
 				<img src="${ride.photoURL}">
 			
