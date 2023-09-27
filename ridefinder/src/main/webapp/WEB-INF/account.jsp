@@ -35,14 +35,9 @@
 			<br>
 		<h3>Address</h3>
 			<br>
-	Street: <c:out value="${loggedInUser.getAddress().getStreet()}" />
-			<br>
 	City: <c:out value="${loggedInUser.getAddress().getCity()}" />
 		    <br>
 	State: <c:out value="${loggedInUser.getAddress().getState()}" />
-		    <br>
-	Zip: <c:out value="${loggedInUser.getAddress().getZip()}" />
-			<br>
 			<br>
 		<h3>Clubs</h3>
 			<br>
@@ -66,7 +61,7 @@
 				</c:when>
 				
 				<c:otherwise>
-				<td><a class="btn btn-dark" href="delete.do?clubId=${club.id}" role="button">Enable</a> </td>
+				<td><a class="btn btn-dark" href="enable.do?clubId=${club.id}" role="button">Enable</a> </td>
 				</c:otherwise>
 				</c:choose>
 				</tr>

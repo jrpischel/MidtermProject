@@ -53,11 +53,7 @@
 
 			<br>
 			<br>
-			<%-- Address:
-			<div>
-			<label for="street">Street:</label>
-			<input type="text" name="street" id="street" value="${user.address.street}">
-   			</div>
+			Address:
 			<div>
 			<label for="city">City:</label>
 			<input type="text" name="city" id="city" value="${user.address.city}">
@@ -66,10 +62,7 @@
 			<label for="state">State:</label>
 			<input type="text" name="state" id="state" value="${user.address.state}">
    			</div>
-			<div>
-			<label for="zip">Zip Code:</label>
-			<input type="text" name="zip" id="zip" value="${user.address.zip}">
-   			</div> --%>
+			
 
 			<br>
 			<br>
