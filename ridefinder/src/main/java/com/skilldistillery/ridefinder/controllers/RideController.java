@@ -62,7 +62,7 @@ public class RideController {
 		ride.setStartAddressId(newAddress);
 		rideDAO.createRide(ride);
 		
-		return "home";
+		return "redirect:home.do";
 	}
 
 	@RequestMapping(path = "rideDisplay.do")

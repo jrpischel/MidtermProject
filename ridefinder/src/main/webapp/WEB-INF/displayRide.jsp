@@ -32,8 +32,11 @@
 
 <h3>Description</h3>
 <p>${ride.description}</p>
-<img src="${ride.photoURL}" style="height: 150px;">
+<div class="text-center">
+<img src="${ride.photoURL}" class="img-fluid">
+</div>
 
+${ride.startAddressId }
 
 
 
