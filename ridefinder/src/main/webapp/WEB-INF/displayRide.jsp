@@ -30,6 +30,9 @@
 			<c:when test="${rideOwner }">
 			<a href="#" class="btn btn-success">Your Ride</a>
 			</c:when>
+			<c:when test="${alreadyJoined }">
+			<a href="#" class="btn btn-success">Joined Ride</a>
+			</c:when>
 			<c:otherwise>
 			<a href="userJoinsRide.do?theRideId=${ride.id }" class="btn btn-dark">Join Ride</a>
 			</c:otherwise>

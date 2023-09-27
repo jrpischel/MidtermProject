@@ -89,6 +89,8 @@ public class UserDAOImpl implements UserDAO {
 		User user = em.find(User.class, userId);
 		user.getClubs().size();
 		user.getRides().size();
+		
+		user.getRiders().size(); // why doesn't this do the trick??
 		return user;
 	}
 

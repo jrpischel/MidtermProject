@@ -13,6 +13,7 @@ import com.skilldistillery.ridefinder.data.RideDAO;
 import com.skilldistillery.ridefinder.data.UserDAO;
 import com.skilldistillery.ridefinder.entities.Address;
 import com.skilldistillery.ridefinder.entities.Ride;
+import com.skilldistillery.ridefinder.entities.Rider;
 import com.skilldistillery.ridefinder.entities.SkillLevel;
 import com.skilldistillery.ridefinder.entities.User;
 
@@ -25,7 +26,9 @@ public class RideController {
 	@Autowired
 	private AddressDAO addressDAO;
 	
-
+	@Autowired
+	private UserDAO userDAO;
+	
 	
 	
 	@RequestMapping(path = "createRide.do", method = RequestMethod.GET)
@@ -74,10 +77,20 @@ public class RideController {
 				}
 			}
 		}
+		
+		boolean alreadyJoined = false;
+		if (user != null) {
+			for (Rider r : user.getRiders()) {
+				if (r.getRide().getId() == theRideId) {
+					alreadyJoined = true;
+				}
+			}
+		}
 
 		
 		
 		model.addAttribute("rideOwner", rideOwner);
+		model.addAttribute("alreadyJoined", alreadyJoined);
 		model.addAttribute("ride", ride);
 		
 		return "displayRide";
