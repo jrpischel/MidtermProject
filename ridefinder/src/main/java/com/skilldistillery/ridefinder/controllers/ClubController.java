@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.ridefinder.data.ClubDAO;
+import com.skilldistillery.ridefinder.data.UserDAO;
 import com.skilldistillery.ridefinder.entities.Club;
 import com.skilldistillery.ridefinder.entities.User;
 
@@ -20,6 +21,9 @@ public class ClubController {
 
 	@Autowired
 	private ClubDAO clubDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 
 	@RequestMapping(path = "club.do", method = RequestMethod.GET)
 	public String findAllClub(Model model) {
@@ -49,7 +53,6 @@ public class ClubController {
 
 	@RequestMapping(path = "makeClub.do")
 	public ModelAndView createClub(Club newClub, HttpSession session) {
-		
 		ModelAndView mv = new ModelAndView();
 		User clubOwner = (User) session.getAttribute("loggedInUser");
 		if(clubOwner != null) {
@@ -60,8 +63,22 @@ public class ClubController {
 			mv.setViewName("redirect:createClub.do");
 		}
 		return mv;
-
 	}
+	
+	@RequestMapping(path="joinClub.do", method = RequestMethod.GET)
+	public ModelAndView joinClub(Club club, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User clubMember = (User) session.getAttribute("loggedInUser");
+		if(clubMember != null) {
+			clubDAO.addMember(clubMember, club);
+			mv.addObject("club", clubDAO.findById(club.getId()));
+			session.setAttribute("loggedInUser", userDAO.findById(clubMember.getId()));
+			mv.setViewName("clubHome");
+		}
+		return mv;
+	}
+	
+	
 
 	@RequestMapping(path = "clubUpdateForm.do", method = RequestMethod.GET, params = "clubId")
 	public ModelAndView updateClubForm(int clubId) {

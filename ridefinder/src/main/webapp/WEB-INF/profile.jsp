@@ -14,35 +14,35 @@
 	<%--Edit the file nav.jsp to change nav links --%>
 <div class="container">
 	<c:choose>
-		<c:when test="${!empty sessionScope.loggedInUser}">
+		<c:when test="${!empty user}">
 			
 			<h2>Your Account Details</h2>
-			<img src="${loggedInUser.getPhotoURL() }" style="height:150px">
+			<img src="${user.getPhotoURL() }" style="height:150px">
 			<br>
-	UserName: <c:out value="${loggedInUser.getUsername()}" />
+	UserName: <c:out value="${user.getUsername()}" />
 			<br>
-	First Name: <c:out value="${loggedInUser.getFirstName()}" />
+	First Name: <c:out value="${user.getFirstName()}" />
 			<br>
-	Last Name: <c:out value="${loggedInUser.getLastName()}" />
+	Last Name: <c:out value="${user.getLastName()}" />
 			<br>
 
-	Nickname: <c:out value="${loggedInUser.getNickname()}" />
+	Nickname: <c:out value="${user.getNickname()}" />
 			<br>
-	Joined Date: <c:out value="${loggedInUser.getCreateDate()}" />
+	Joined Date: <c:out value="${user.getCreateDate()}" />
 			<br>	
-	Description: <c:out value="${loggedInUser.getDescription()}" />
+	Description: <c:out value="${user.getDescription()}" />
 			<br>
 			<br>
 		<h3>Address</h3>
 			<br>
-	City: <c:out value="${loggedInUser.getAddress().getCity()}" />
+	City: <c:out value="${user.getAddress().getCity()}" />
 		    <br>
-	State: <c:out value="${loggedInUser.getAddress().getState()}" />
+	State: <c:out value="${user.getAddress().getState()}" />
 			<br>
 		<h3>Clubs</h3>
 			<br>
 	
-	<c:if test= "${! empty loggedInUser.clubs}">
+	<c:if test= "${! empty user.clubs}">
 	 <table class="table table-striped table-hover">
 		<thead>
 		<tr>
@@ -51,7 +51,7 @@
 		</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="club" items="${loggedInUser.clubs}">
+			<c:forEach var="club" items="${user.clubs}">
 				<tr>
 				<td><a href="clubHome.do?Id=${club.id}">${club.name}</a> </td>
 				<c:choose>
@@ -78,7 +78,7 @@
 		</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="clubMember" items="${loggedInUser.clubMembers}">
+			<c:forEach var="clubMember" items="${user.clubMembers}">
 				<tr>
 				<td><a href="clubHome.do?Id=${clubMember.club.id}">${clubMember.club.name}</a> </td>
 				</tr>
@@ -89,7 +89,7 @@
 	<br>
 		<h3>Rides</h3>
 			<br>
-	<table class="table table-striped table-hover">
+	 <table class="table table-striped table-hover">
 		<thead>
 		<tr>
 			<th>Id</th>
@@ -97,7 +97,7 @@
 		</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="ride" items="${loggedInUser.getRides()}">
+			<c:forEach var="ride" items="${user.getRides()}">
 				<tr>
 				<td>${ride.getId()}</td>
 				<td><a href="showRide.do?ride=${ride.id}" name="ride">${ride.name}</a> </td>

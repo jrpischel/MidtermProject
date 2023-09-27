@@ -86,7 +86,7 @@ public class User {
 	private List<Rider> riders;
 	
 	@OneToMany(mappedBy = "user")
-	private List<Club> clubMembers;
+	private List<ClubMember> clubMembers;
 	
 
 	public List<Rider> getRiders() {
@@ -419,11 +419,11 @@ public class User {
 		this.photoUrl = photoUrl;
 	}
 
-	public List<Club> getClubMembers() {
+	public List<ClubMember> getClubMembers() {
 		return clubMembers;
 	}
 
-	public void setClubMembers(List<Club> clubMembers) {
+	public void setClubMembers(List<ClubMember> clubMembers) {
 		this.clubMembers = clubMembers;
 	}
 
