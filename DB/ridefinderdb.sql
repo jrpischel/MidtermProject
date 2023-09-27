@@ -332,6 +332,7 @@ CREATE TABLE IF NOT EXISTS `rider` (
   `rating` INT NULL,
   `comment` TEXT NULL,
   `create_date` DATETIME NULL,
+  `administrator` TINYINT NOT NULL DEFAULT 0,
   PRIMARY KEY (`user_id`, `ride_id`),
   INDEX `fk_user_has_ride_ride1_idx` (`ride_id` ASC),
   INDEX `fk_user_has_ride_user1_idx` (`user_id` ASC),
@@ -465,7 +466,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `ridefinderDB`;
-INSERT INTO `rider` (`user_id`, `ride_id`, `rating`, `comment`, `create_date`) VALUES (1, 1, 5, 'Was great, would do it again!', '2023/09/22');
+INSERT INTO `rider` (`user_id`, `ride_id`, `rating`, `comment`, `create_date`, `administrator`) VALUES (1, 1, 5, 'Was great, would do it again!', '2023/09/22', 1);
 
 COMMIT;
 
