@@ -47,15 +47,14 @@
 		<h3>Clubs</h3>
 			<br>
 	
-	 <table>
-		<tr>
+	 <table class="table table-striped table-hover">
 		<thead>
+		<tr>
 			<th>Id</th>
 			<th>Club Name</th>
-
+		</tr>
 		</thead>
 		<tbody>
-			</tr>
 			<c:forEach var="club" items="${loggedInUser.getClubs()}">
 				<tr>
 				<td>${club.getId()}</td>
@@ -69,17 +68,13 @@
 		<h3>Rides</h3>
 			<br>
 	 <table>
-		<tr>
 		<thead>
+		<tr>
 			<th>Id</th>
 			<th>Ride Name</th>
-
-			<br>
-
-
+		</tr>
 		</thead>
 		<tbody>
-			</tr>
 			<c:forEach var="ride" items="${loggedInUser.getRides()}">
 				<tr>
 				<td>${ride.getId()}</td>
