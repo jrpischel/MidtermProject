@@ -24,7 +24,8 @@
 
 <c:choose>
 	<c:when test="${!empty loggedInUser}">
-		<a href="#LINK_TO_JOIN_RIDE" class="btn btn-dark">Join Ride</a>
+	
+		<a href="userJoinsRide.do?theRideId=${ride.id }" class="btn btn-dark">Join Ride</a>
 	</c:when>
 	<c:otherwise></c:otherwise>
 </c:choose>
