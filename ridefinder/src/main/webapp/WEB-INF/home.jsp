@@ -27,13 +27,26 @@
 
 <!-- FOR TESTING RIDE VIEWS -->
 <!-- TODO: Make into a prettier list of ride displays -->
-<h1>Test Ride Views</h1>
+<h1>Available Rides</h1>
 
+<div class = "container">
+<div class = "row">
 <c:forEach var="ride" items="${rides }">
-	<a href="rideDisplay.do?theRideId=${ride.id} ">${ride.name}</a>
-	<br>
-</c:forEach>
+	<div class="col-12 col-md-6 col-lg-4">
+		<div class="card">
+			
+				<img src="${ride.photoURL}">
+			
+				<h3 class="card-title">
+					<a href="rideDisplay.do?theRideId=${ride.id} ">${ride.name}</a>
+				</h3>
+				<p>${ride.rideDate }</p>
+					</div>
+				</div>
 
+</c:forEach>
+</div>
+</div>
 
 <jsp:include page="bootstrapFoot.jsp"/>
 </div>
