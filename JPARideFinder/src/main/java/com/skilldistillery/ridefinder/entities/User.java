@@ -82,16 +82,26 @@ public class User {
 	@JoinColumn(name="address_id")
 	private Address address;
 	
-//	@OneToMany(mappedBy = "")
-//	private List<Rider> riders;
+	@OneToMany(mappedBy = "user")
+	private List<Rider> riders;
 	
 	@OneToMany(mappedBy = "user")
 	private List<Club> clubMembers;
 	
 
+	public List<Rider> getRiders() {
+		return riders;
+	}
+	
 	public User() {
 		
 	}
+	
+	public void setRiders(List<Rider> riders) {
+		this.riders = riders;
+	}
+
+
 
 	public int getId() {
 		return id;

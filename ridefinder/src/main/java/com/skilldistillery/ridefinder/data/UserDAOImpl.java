@@ -1,13 +1,14 @@
 package com.skilldistillery.ridefinder.data;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.ridefinder.entities.Ride;
+import com.skilldistillery.ridefinder.entities.Rider;
+import com.skilldistillery.ridefinder.entities.RiderId;
 import com.skilldistillery.ridefinder.entities.User;
 
 @Service
@@ -85,7 +86,32 @@ public class UserDAOImpl implements UserDAO {
 	
 	@Override
 	public User findById (int userId) {
-		return em.find(User.class, userId);
+		User user = em.find(User.class, userId);
+		user.getClubs().size();
+		user.getRides().size();
+		return user;
+	}
+
+	@Override
+	public void addUserToRide(int userId, int rideId) {
+		
+		RiderId riderId = new RiderId(userId, rideId);
+		Rider rider = new Rider();
+		rider.setId(riderId);
+		
+		Ride ride = em.find(Ride.class, rideId);
+		rider.setRide(ride);
+		
+		User user = em.find(User.class, userId);
+
+		rider.setUser(user);
+		
+		em.persist(rider);
+		// we can add rating and comments here
+		// TODO maybe
+		
+		
+		
 	}
 
 

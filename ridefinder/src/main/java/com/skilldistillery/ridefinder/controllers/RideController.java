@@ -1,6 +1,6 @@
 package com.skilldistillery.ridefinder.controllers;
 
-import java.util.List;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.ridefinder.data.AddressDAO;
 import com.skilldistillery.ridefinder.data.RideDAO;
+import com.skilldistillery.ridefinder.data.UserDAO;
 import com.skilldistillery.ridefinder.entities.Address;
 import com.skilldistillery.ridefinder.entities.Ride;
 import com.skilldistillery.ridefinder.entities.SkillLevel;
+import com.skilldistillery.ridefinder.entities.User;
 
 @Controller
 public class RideController {
@@ -22,6 +24,9 @@ public class RideController {
 	
 	@Autowired
 	private AddressDAO addressDAO;
+	
+	@Autowired
+	private UserDAO userDAO;
 	
 	
 	@RequestMapping(path = "createRide.do", method = RequestMethod.GET)
@@ -35,11 +40,12 @@ public class RideController {
 			String city,
 			String state, 
 			String zip,
-			Ride ride) {
+			Ride ride,
+			HttpSession session) {
 	
 		System.out.println("#########" + ride );
 		
-	
+		
 		
 		SkillLevel level = rideDAO.findSkill(skillLevelId);
 		ride.setSkillLevel(level);
