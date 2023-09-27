@@ -19,8 +19,22 @@
 <div class="container">
 
 <jsp:include page="navbar.jsp"/>
+
+
 <h1>${ ride.name }</h1>
-<p>Ride Date: <strong>${ ride.rideDate }</strong></p>
+
+<h5>Ride Date: ${ ride.rideDate } </h5>
+		<h3>Address</h3>
+	Street: <c:out value="${ride.getStartAddressId().getStreet()}" />
+			<br>
+	City: <c:out value="${ride.getStartAddressId().getCity()}" />
+		    <br>
+	State: <c:out value="${ride.getStartAddressId().getState()}" />
+		    <br>
+		
+	<%-- Zip: <c:out value="${ride.getAddress().getZip()}" /> --%>
+
+
 
 <c:choose>
 	<c:when test="${!empty loggedInUser}">
@@ -35,9 +49,6 @@
 <div class="text-center">
 <img src="${ride.photoURL}" class="img-fluid">
 </div>
-
-${ride.startAddressId }
-
 
 
 

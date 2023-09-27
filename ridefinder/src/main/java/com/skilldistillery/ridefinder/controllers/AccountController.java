@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.skilldistillery.ridefinder.data.AddressDAO;
 import com.skilldistillery.ridefinder.data.UserDAO;
+import com.skilldistillery.ridefinder.entities.Address;
 import com.skilldistillery.ridefinder.entities.User;
 
 @Controller
@@ -16,6 +18,9 @@ public class AccountController {
 	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private AddressDAO addressDAO;
 	
 	@RequestMapping(path = "account.do")
 	public String account(HttpSession session) {
@@ -54,10 +59,19 @@ public class AccountController {
 	}
 
 	@RequestMapping(path = "updateAccount.do", method = RequestMethod.GET)
-	public ModelAndView update(User user, HttpSession session) {
+	public ModelAndView update(User user, HttpSession session, String city, String state) {
 		ModelAndView mv = new ModelAndView();
 		
+		Address newAddress = new Address();
+		newAddress.setCity(city);
+		newAddress.setState(state);
+		addressDAO.createAddress(newAddress);
+		
+		user.setAddress(newAddress);
+		
 		userDAO.updateUser(user);
+		
+		
 		session.setAttribute("loggedInUser", user);
 		mv.setViewName("account");
 		return mv;
