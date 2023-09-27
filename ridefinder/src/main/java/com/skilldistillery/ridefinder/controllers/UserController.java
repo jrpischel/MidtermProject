@@ -42,13 +42,19 @@ public class UserController {
 	@RequestMapping(path = "userJoinsRide.do")
 	private String userJoinsRide(int theRideId, HttpSession session) {
 		Ride ride = rideDAO.findById(theRideId);
+		
 		User user = (User) session.getAttribute("loggedInUser");
-		
-		System.out.println(user.getId());
 
-		user.addRide(ride);
-		//userDAO.updateUser(user);
+		System.out.println(user.getId());
 		
+		System.out.println("#####" + ride.getUser());
+		
+
+		
+		userDAO.addUserToRide(user.getId(), theRideId);
+		
+		session.setAttribute("loggedInUser", userDAO.findById(user.getId()));
+
 		return "home";
 	}
 	
