@@ -12,4 +12,5 @@ public interface ClubDAO {
 	Club update(int id, Club updateClub);
 	boolean disable(int id);
 	boolean enable(int id);
+	boolean addMember(User user, Club club);
 }

@@ -32,10 +32,12 @@
 </div>
 
 <div>
+<a class="btn btn-dark" href="joinClub.do?Id=${club.id}" role="button">Join Club</a>
 <table class="table table-striped table-hover">
 		<thead>
 			<tr>
 				<th>Nick Name</th>
+				<th>First Name</th>
 				
 			</tr>
 		</thead>
@@ -43,7 +45,8 @@
 
 			<c:forEach var="m" items="${club.clubMembers}">
 				<tr>
-					<td><a href="account.do?userId=${m.id}">${m.nickname}</a></td>
+					<td><a href="profile.do?userId=${m.user.id}">${m.nickname}</a></td>
+					<td>${m.user.firstName}</td>
 					
 				</tr>
 			</c:forEach>

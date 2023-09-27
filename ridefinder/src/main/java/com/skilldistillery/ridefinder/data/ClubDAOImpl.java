@@ -85,4 +85,22 @@ public class ClubDAOImpl implements ClubDAO {
 		return true;
 	}
 
+	@Override
+	public boolean addMember(User user, Club club) {
+		user = em.find(User.class, user.getId());
+		club = em.find(Club.class, club.getId());
+		if (user != null) {
+			ClubMember member = new ClubMember();
+			ClubMemberId id = new ClubMemberId(user.getId(), club.getId());
+			member.setId(id);
+			member.setClub(club);
+			member.setUser(user);
+			member.setAdministrator(true);
+			member.setNickname(user.getNickname());
+			em.persist(member);
+			return true;
+		}
+		return false;
+	}
+
 }
