@@ -85,12 +85,18 @@ public class ClubController {
 	}
 
 	@RequestMapping(path = "delete.do", method = RequestMethod.GET)
-	public ModelAndView deleteClub(int clubId, HttpSession session) {
+	public ModelAndView disableClub(int clubId) {
 		ModelAndView mv = new ModelAndView();
 		clubDAO.disable(clubId);
-//		session.setAttribute("loggedInUser");
 		mv.setViewName("deleteResult");
-
+		return mv;
+	}
+	
+	@RequestMapping(path = "enable.do", method = RequestMethod.GET)
+	public ModelAndView enableClub(int clubId) {
+		ModelAndView mv = new ModelAndView();
+		clubDAO.enable(clubId);
+		mv.setViewName("deleteResult");
 		return mv;
 	}
 

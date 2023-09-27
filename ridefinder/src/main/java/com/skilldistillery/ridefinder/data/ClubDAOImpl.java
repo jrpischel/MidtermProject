@@ -80,8 +80,9 @@ public class ClubDAOImpl implements ClubDAO {
 
 	@Override
 	public boolean enable(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		Club dbClub = em.find(Club.class, id);
+		dbClub.setEnabled(true);
+		return true;
 	}
 
 }
