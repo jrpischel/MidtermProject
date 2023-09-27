@@ -54,6 +54,8 @@ public class UserController {
 		userDAO.addUserToRide(user.getId(), theRideId);
 		
 		session.setAttribute("loggedInUser", userDAO.findById(user.getId()));
+		
+		
 
 		return "home";
 	}
