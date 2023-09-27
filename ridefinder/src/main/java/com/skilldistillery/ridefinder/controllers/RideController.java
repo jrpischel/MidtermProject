@@ -13,6 +13,7 @@ import com.skilldistillery.ridefinder.data.RideDAO;
 import com.skilldistillery.ridefinder.data.UserDAO;
 import com.skilldistillery.ridefinder.entities.Address;
 import com.skilldistillery.ridefinder.entities.Ride;
+import com.skilldistillery.ridefinder.entities.Rider;
 import com.skilldistillery.ridefinder.entities.SkillLevel;
 import com.skilldistillery.ridefinder.entities.User;
 
@@ -29,6 +30,7 @@ public class RideController {
 	private UserDAO userDAO;
 	
 	
+	
 	@RequestMapping(path = "createRide.do", method = RequestMethod.GET)
 	public String createRide() {
 		return "createRide";
@@ -42,10 +44,7 @@ public class RideController {
 			String zip,
 			Ride ride,
 			HttpSession session) {
-	
-		System.out.println("#########" + ride );
-		
-		
+
 		
 		SkillLevel level = rideDAO.findSkill(skillLevelId);
 		ride.setSkillLevel(level);
@@ -56,8 +55,6 @@ public class RideController {
 		newAddress.setZip(zip);
 		
 		
-		System.out.println("#########" + newAddress);
-		
 		addressDAO.createAddress(newAddress);
 		ride.setStartAddressId(newAddress);
 		rideDAO.createRide(ride);
@@ -66,10 +63,34 @@ public class RideController {
 	}
 
 	@RequestMapping(path = "rideDisplay.do")
-	public String rideDisplay(Model model, int theRideId) {
+	public String rideDisplay(Model model, int theRideId, HttpSession session) {
 		
 		Ride ride = rideDAO.findById(theRideId);
 		
+		User user = (User) session.getAttribute("loggedInUser");
+		
+		boolean rideOwner = false;
+		if (user != null) {
+			for (Ride r : user.getRides()) {
+				if (r.getId() == theRideId) {
+					rideOwner = true;
+				}
+			}
+		}
+		
+		boolean alreadyJoined = false;
+		if (user != null) {
+			for (Rider r : user.getRiders()) {
+				if (r.getRide().getId() == theRideId) {
+					alreadyJoined = true;
+				}
+			}
+		}
+
+		
+		
+		model.addAttribute("rideOwner", rideOwner);
+		model.addAttribute("alreadyJoined", alreadyJoined);
 		model.addAttribute("ride", ride);
 		
 		return "displayRide";

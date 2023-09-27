@@ -57,8 +57,9 @@ public class UserController {
 		
 		
 
-		return "home";
+		return "redirect:rideDisplay.do?theRideId=" + theRideId;
 	}
+	
 	
 
 }

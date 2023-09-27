@@ -23,6 +23,27 @@
 
 <h1>${ ride.name }</h1>
 
+<c:choose>
+	<c:when test="${!empty loggedInUser}">
+		
+		<c:choose>
+			<c:when test="${rideOwner }">
+			<a href="#" class="btn btn-success">Your Ride</a>
+			</c:when>
+			<c:when test="${alreadyJoined }">
+			<a href="#" class="btn btn-success">Joined Ride</a>
+			</c:when>
+			<c:otherwise>
+			<a href="userJoinsRide.do?theRideId=${ride.id }" class="btn btn-dark">Join Ride</a>
+			</c:otherwise>
+		</c:choose>
+		
+		
+		
+	</c:when>
+	<c:otherwise></c:otherwise>
+</c:choose>
+
 <h5>Ride Date: ${ ride.rideDate } </h5>
 		<h3>Address</h3>
 	Street: <c:out value="${ride.getStartAddressId().getStreet()}" />
@@ -36,13 +57,7 @@
 
 
 
-<c:choose>
-	<c:when test="${!empty loggedInUser}">
-	
-		<a href="userJoinsRide.do?theRideId=${ride.id }" class="btn btn-dark">Join Ride</a>
-	</c:when>
-	<c:otherwise></c:otherwise>
-</c:choose>
+
 
 <h3>Description</h3>
 <p>${ride.description}</p>
