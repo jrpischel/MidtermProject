@@ -36,6 +36,15 @@ public class ClubController {
 		return "createClub";
 	}
 	
+	@RequestMapping(path = "clubHome.do")
+	public ModelAndView clubHome(Club club) {
+		ModelAndView mv = new ModelAndView();
+		club = clubDAO.findById(club.getId());
+		mv.addObject("club", club);
+		mv.setViewName("clubHome");
+		return mv;
+	}
+	
 	
 
 	@RequestMapping(path = "makeClub.do")
@@ -75,9 +84,11 @@ public class ClubController {
 
 	}
 
-	public ModelAndView deleteClub(int clubId) {
+	@RequestMapping(path = "delete.do", method = RequestMethod.GET)
+	public ModelAndView deleteClub(int clubId, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
-		clubDAO.delete(clubId);
+		clubDAO.disable(clubId);
+//		session.setAttribute("loggedInUser");
 		mv.setViewName("deleteResult");
 
 		return mv;

@@ -38,6 +38,9 @@
 						<li class="nav-item">
 						<a class="navbar-brand" href="showRide.do">Show Rides</a>
 						</li>
+						<li class="nav-item">
+						<a class="navbar-brand" href="club.do">Clubs</a>
+						</li>
 					</c:when>
 
 					<c:otherwise>

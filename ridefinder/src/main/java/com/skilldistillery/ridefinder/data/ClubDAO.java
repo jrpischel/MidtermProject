@@ -10,5 +10,6 @@ public interface ClubDAO {
 	Club findById(int clubId);
 	Club create(Club newClub, User user);
 	Club update(int id, Club updateClub);
-	boolean delete(int id);
+	boolean disable(int id);
+	boolean enable(int id);
 }

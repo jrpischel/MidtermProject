@@ -15,7 +15,7 @@
 </head>
 
 <body>
-
+<input type="hidden" name="id" value="${club.id}">
 <div class="container">
 
 <jsp:include page="navbar.jsp"/>

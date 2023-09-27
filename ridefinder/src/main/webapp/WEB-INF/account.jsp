@@ -52,13 +52,23 @@
 		<tr>
 			<th>Id</th>
 			<th>Club Name</th>
+			<th>Delete</th>
 		</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="club" items="${loggedInUser.getClubs()}">
 				<tr>
 				<td>${club.getId()}</td>
-				<td><a href="club.do?club=${club.id}" name="club">${club.name}</a> </td>
+				<td><a href="clubHome.do?Id=${club.id}">${club.name}</a> </td>
+				<c:choose>
+				<c:when test="${club.enabled == true}">
+				<td><a class="btn btn-dark" href="delete.do?clubId=${club.id}" role="button">Disable</a> </td>
+				</c:when>
+				
+				<c:otherwise>
+				<td><a class="btn btn-dark" href="delete.do?clubId=${club.id}" role="button">Enable</a> </td>
+				</c:otherwise>
+				</c:choose>
 				</tr>
 			</c:forEach>
 		</tbody>

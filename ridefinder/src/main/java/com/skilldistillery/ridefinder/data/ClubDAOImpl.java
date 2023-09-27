@@ -23,7 +23,7 @@ public class ClubDAOImpl implements ClubDAO {
 	@Override
 	public List<Club> findAll() {
 		List<Club> clubs = null;
-		String jpql = "SELECT c FROM Club c";
+		String jpql = "SELECT c FROM Club c WHERE c.enabled = 1";
 		clubs = em.createQuery(jpql, Club.class).getResultList();
 		return clubs;
 	}
@@ -33,6 +33,8 @@ public class ClubDAOImpl implements ClubDAO {
 		user = em.find(User.class, user.getId());
 		if (user != null) {
 			newClub.setUser(user);
+			newClub.setEnabled(true);
+			newClub.setShared(true);
 			em.persist(newClub);
 			ClubMember clubOwner = new ClubMember();
 			ClubMemberId id = new ClubMemberId(user.getId(), newClub.getId());
@@ -65,20 +67,21 @@ public class ClubDAOImpl implements ClubDAO {
 	}
 
 	@Override
-	public boolean delete(int id) {
+	public boolean disable(int id) {
 		Club dbClub = em.find(Club.class, id);
-		boolean deleted = false;
-		if (dbClub != null) {
-			em.remove(dbClub);
-			deleted = !em.contains(dbClub);
-		}
-
-		return deleted;
+		dbClub.setEnabled(false);
+		return true;
 	}
 
 	@Override
 	public Club findById(int clubId) {
 		return em.find(Club.class, clubId);
+	}
+
+	@Override
+	public boolean enable(int id) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
