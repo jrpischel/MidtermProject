@@ -1,5 +1,7 @@
 package com.skilldistillery.ridefinder.data;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
@@ -90,7 +92,7 @@ public class UserDAOImpl implements UserDAO {
 		user.getClubs().size();
 		user.getRides().size();
 		
-		user.getRiders().size(); // why doesn't this do the trick??
+		user.getRiders().size(); 
 		return user;
 	}
 
@@ -108,7 +110,14 @@ public class UserDAOImpl implements UserDAO {
 
 		rider.setUser(user);
 		
+		// what about???
+		List<Rider> riders = user.getRiders();
+		riders.add(rider);
+		user.setRiders(riders);
+		em.persist(user);
 		em.persist(rider);
+		 
+		
 		// we can add rating and comments here
 		// TODO maybe
 		
