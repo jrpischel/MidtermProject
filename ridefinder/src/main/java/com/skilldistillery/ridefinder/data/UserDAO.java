@@ -11,4 +11,5 @@ public interface UserDAO {
 	User createUserAccount(String userName, String password);
 	User updateUser(User user);
 	User findById(int userId);
+	void addUserToRide(int userId, int rideId);
 }
