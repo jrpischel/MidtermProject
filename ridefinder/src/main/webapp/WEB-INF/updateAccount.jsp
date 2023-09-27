@@ -53,16 +53,20 @@
 
 			<br>
 			<br>
+
 			Address:
+
 			<div>
 			<label for="city">City:</label>
-			<input type="text" name="city" id="city" value="${user.address.city}">
+			<input type="text" name="city" id="city" value="${city}">
    			</div>
 			<div>
 			<label for="state">State:</label>
-			<input type="text" name="state" id="state" value="${user.address.state}">
+			<input type="text" name="state" id="state" value="${state}">
    			</div>
+
 			
+
 
 			<br>
 			<br>
