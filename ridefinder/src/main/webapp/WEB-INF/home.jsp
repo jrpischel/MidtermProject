@@ -19,21 +19,18 @@
 <div class="container">
 
 <jsp:include page="navbar.jsp"/>
-<h1>Ride Finder</h1>
 
 
-<p>${ SMOKETEST }</p>
+<img style="width: max(300px, 40vw);" src="assets/logo.svg">
 
 
-<!-- FOR TESTING RIDE VIEWS -->
-<!-- TODO: Make into a prettier list of ride displays -->
 <h1>Available Rides</h1>
 
 <div class = "container">
 <div class = "row">
 <c:forEach var="ride" items="${rides }">
 	<div class="col-12 col-md-6 col-lg-4">
-		<div class="card" style="margin-bottom: 10px;">
+		<div class="card bg-transparent" style="margin-bottom: 10px;">
 			
 				<img src="${ride.photoURL}">
 			
