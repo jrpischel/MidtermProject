@@ -132,5 +132,17 @@ public class ClubController {
 		mv.setViewName("clubHome");
 		return mv;
 	}
+	
+	@RequestMapping(path = "removeSelf.do")
+	public ModelAndView removeSelf(int memberId, int clubId, HttpSession session) {
+		ModelAndView mv = new ModelAndView();
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		clubDAO.removeMember(memberId, clubId);
+		Club club = clubDAO.findById(clubId);
+		mv.addObject("club", club);
+		session.setAttribute("loggedInUser", userDAO.findById(loggedInUser.getId()));
+		mv.setViewName("account");
+		return mv;
+	}
 
 }
