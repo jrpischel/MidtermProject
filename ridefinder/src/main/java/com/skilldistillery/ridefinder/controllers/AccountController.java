@@ -49,9 +49,10 @@ public class AccountController {
 	}
 	
 	@RequestMapping(path = "makeAccount.do")
-	public String makeAccount(User user) {
+	public String makeAccount(User user, HttpSession session) {
 		
-		userDAO.createUserAccount(user.getUsername(), user.getPassword());
+		User registered = userDAO.createUserAccount(user.getUsername(), user.getPassword());
+		session.setAttribute("loggedInUser", registered);
 		return "account";
 	}
 	
