@@ -32,7 +32,8 @@
 </div>
 
 <div>
-<a class="btn btn-dark" href="joinClub.do?Id=${club.id}" role="button">Join Club</a>
+
+<c:if test="${alreadyJoined == false }"><a class="btn btn-dark" href="joinClub.do?Id=${club.id}" role="button">Join Club</a></c:if>
 <table class="table table-striped table-hover">
 		<thead>
 			<tr>

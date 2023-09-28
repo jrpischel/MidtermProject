@@ -42,9 +42,19 @@ public class ClubController {
 	}
 	
 	@RequestMapping(path = "clubHome.do")
-	public ModelAndView clubHome(Club club) {
+	public ModelAndView clubHome(Club club, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
+		User user = (User) session.getAttribute("loggedInUser");
 		club = clubDAO.findById(club.getId());
+		boolean alreadyJoined = false;
+		
+			for (Club c : user.getClubs()) {
+				if(c.getId() == club.getId()) {
+					alreadyJoined = true;
+				}
+			}
+		
+		mv.addObject("alreadyJoined", alreadyJoined);
 		mv.addObject("club", club);
 		mv.setViewName("clubHome");
 		return mv;
