@@ -105,8 +105,17 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address: " + street + "\n City: " + city + "\n State:" + state + "\n Zip Code: " + zip
-				+ "\n Description: " + description;
+		String fields = "Address: " + street + "\n City: " + city + "\n State: " + state +  "\n Zip Code: " + zip
+				+ "\n Description: " + description ;
+		if( zip != null && description != null) {
+			return fields;
+		} 
+		else if(street != null) {
+			return "Address: " + street + "\n City: " + city + "\n State: " + state;
+		}
+		
+		return  " City: " + city + "\n State: " + state;
+		
 	}
 
 	
