@@ -19,14 +19,11 @@
 <div class="container">
 
 <jsp:include page="navbar.jsp"/>
-<h1>Ride Finder</h1>
 
 
-<p>${ SMOKETEST }</p>
+<img style="width: max(300px, 40vw);" src="assets/logo.svg">
 
 
-<!-- FOR TESTING RIDE VIEWS -->
-<!-- TODO: Make into a prettier list of ride displays -->
 <h1>Available Rides</h1>
 
 <div class = "container">
