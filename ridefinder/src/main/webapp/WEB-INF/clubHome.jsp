@@ -50,8 +50,23 @@
 				<tr>
 					<td><a href="profile.do?userId=${member.user.id}">${member.user.nickname}</a></td>
 					<td>${member.user.firstName}</td>
+					
+					<!--  
 					<c:if test="${loggedInUser.id == club.user.id && member.administrator != true}">
 					<td><a class="btn btn-dark" href="removeMember.do?clubId=${club.id}&memberId=${member.user.id}" role="button">Remove</a></td>
+					</c:if>
+					-->
+					
+					<c:if test="${loggedInUser.id == club.user.id}">
+					<c:choose>
+						<c:when test="${loggedInUser.id == club.user.id && member.administrator != true}">
+						<td><a class="btn btn-dark" href="removeMember.do?clubId=${club.id}&memberId=${member.user.id}" role="button">Remove</a></td>
+						</c:when>
+						
+						<c:otherwise>
+						<td><strong>Your Own Club</strong></td>
+						</c:otherwise>
+					</c:choose>
 					</c:if>
 					
 				</tr>
