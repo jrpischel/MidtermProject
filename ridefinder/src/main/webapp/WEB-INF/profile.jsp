@@ -85,26 +85,46 @@
 			</c:forEach>
 		</tbody>
 	</table> 
-	<br>
-	<br>
-		<h3>Rides</h3>
+	<div class="container text-center">
+		<div class="row align-items-start">
+			<div class="col">
+		<h3>Rides ${user.nickname} Created</h3>
 			<br>
-	 <table class="table table-striped table-hover">
+	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
-			<th>Id</th>
 			<th>Ride Name</th>
 		</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="ride" items="${user.getRides()}">
 				<tr>
-				<td>${ride.getId()}</td>
-				<td><a href="showRide.do?ride=${ride.id}" name="ride">${ride.name}</a> </td>
+				<td><a href="rideDisplay.do?theRideId=${ride.id}">${ride.name}</a> </td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table> 
+	</div>
+	<div class="col">
+		<h3>Rides ${user.nickname} Joined</h3>
+			<br>
+	<table class="table table-striped table-hover">
+		<thead>
+		<tr>
+			<th>Ride Name</th>
+		</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="rider" items="${user.getRiders()}">
+				<tr>
+				<td><a href="rideDisplay.do?theRideId=${rider.ride.id}">${rider.ride.name}</a> </td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table> 
+	</div>
+	</div>
+	</div>
 		</c:when>
 		<c:otherwise>
 			<h1>Not logged in</h1>

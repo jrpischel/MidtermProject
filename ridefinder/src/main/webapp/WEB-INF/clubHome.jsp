@@ -53,7 +53,6 @@
 					<c:if test="${loggedInUser.id == club.user.id && member.administrator != true}">
 					<td><a class="btn btn-dark" href="removeMember.do?clubId=${club.id}&memberId=${member.user.id}" role="button">Remove</a></td>
 					</c:if>
-					
 				</tr>
 			</c:forEach>
 
@@ -74,7 +73,7 @@
 
 			<c:forEach var="r" items="${club.rides}">
 				<tr>
-					<td><a href="account.do?userId=${r.id}">${r.name}</a></td>
+					<td><a href="rideDisplay.do?theRideId=${r.id}">${r.name}</a></td>
 					<td>${r.rideDate}</td>
 					<td>${r.startTime}</td>
 					<td>${r.startAddressId}</td>

@@ -56,6 +56,7 @@
 					</c:otherwise>
 				</c:choose>
 			</ul>
+					<img style= "width: 150px;" src="assets/logo.svg">
 			​
 		</div>
 	</div>
