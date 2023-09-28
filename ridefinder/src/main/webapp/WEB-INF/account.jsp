@@ -56,10 +56,10 @@
 				<td><a href="clubHome.do?Id=${club.id}">${club.name}</a> </td>
 				<c:choose>
 				<c:when test="${club.enabled == true}">
-				<td><a class="btn btn-dark" href="delete.do?clubId=${club.id}" role="button">Disable</a> </td>
+				<td><a class="btn btn-dark" href="toggleEnabled.do?clubId=${club.id}" role="button">Disable</a> </td>
 				</c:when>
 				<c:otherwise>
-				<td><a class="btn btn-dark" href="enable.do?clubId=${club.id}" role="button">Enable</a> </td>
+				<td><a class="btn btn-dark" href="toggleEnabled.do?clubId=${club.id}" role="button">Enable</a> </td>
 				</c:otherwise>
 				</c:choose>
 				</tr>
@@ -87,20 +87,36 @@
 	</table> 
 	<br>
 	<br>
-		<h3>Rides</h3>
+		<h3>Rides You Created</h3>
 			<br>
 	<table class="table table-striped table-hover">
 		<thead>
 		<tr>
-			<th>Id</th>
 			<th>Ride Name</th>
 		</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="ride" items="${loggedInUser.getRides()}">
 				<tr>
-				<td>${ride.getId()}</td>
-				<td><a href="showRide.do?ride=${ride.id}" name="ride">${ride.name}</a> </td>
+				<td><a href="showRide.do?ride=${ride.id}">${ride.name}</a> </td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table> 
+	<br>
+	<br>
+		<h3>Rides You Joined</h3>
+			<br>
+	<table class="table table-striped table-hover">
+		<thead>
+		<tr>
+			<th>Ride Name</th>
+		</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="rider" items="${loggedInUser.getRiders()}">
+				<tr>
+				<td><a href="displayRide.do?ride=${rider.ride.id}">${rider.ride.name}</a> </td>
 				</tr>
 			</c:forEach>
 		</tbody>

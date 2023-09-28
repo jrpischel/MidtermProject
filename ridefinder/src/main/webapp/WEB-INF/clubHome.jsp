@@ -43,12 +43,12 @@
 		</thead>
 		<tbody>
 
-			<c:forEach var="m" items="${club.clubMembers}">
+			<c:forEach var="member" items="${club.clubMembers}">
 				<tr>
-					<td><a href="profile.do?userId=${m.user.id}">${m.nickname}</a></td>
-					<td>${m.user.firstName}</td>
-					<c:if test="${m.administrator == true}">
-					<td><a class="btn btn-dark" href="removeMember.do?Id=${club.id}" role="button">Remove</a></td>
+					<td><a href="profile.do?userId=${member.user.id}">${member.user.nickname}</a></td>
+					<td>${member.user.firstName}</td>
+					<c:if test="${member.administrator != true}">
+					<td><a class="btn btn-dark" href="removeMember.do?clubId=${club.id}&memberId=${member.user.id}" role="button">Remove</a></td>
 					</c:if>
 					
 				</tr>

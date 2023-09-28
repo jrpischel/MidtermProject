@@ -45,6 +45,11 @@ public class UserDAOImpl implements UserDAO {
 		try {
 			user = em.createQuery(jpql, User.class).setParameter("un", userName).setParameter("pw", password)
 					.getSingleResult();
+			user.getClubs().size();
+			user.getRides().size();
+			user.getRole();
+			user.getRiders().size(); 
+			user.getClubMembers().size();
 		} catch (Exception e) {
 			System.err.println("Invalid User" + e);
 		}
@@ -92,8 +97,9 @@ public class UserDAOImpl implements UserDAO {
 		User user = em.find(User.class, userId);
 		user.getClubs().size();
 		user.getRides().size();
-		
+		user.getRole();
 		user.getRiders().size(); 
+		user.getClubMembers().size();
 		return user;
 	}
 

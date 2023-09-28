@@ -59,6 +59,8 @@ public class ClubController {
 		if(clubOwner != null) {
 			clubDAO.create(newClub, clubOwner);
 			mv.addObject("club", newClub);
+			clubOwner = userDAO.findById(clubOwner.getId());
+			session.setAttribute("loggedInUser", clubOwner);
 			mv.setViewName("clubHome");
 		}else {
 			mv.setViewName("redirect:createClub.do");
@@ -102,26 +104,31 @@ public class ClubController {
 
 	}
 
-	@RequestMapping(path = "delete.do", method = RequestMethod.GET)
-	public ModelAndView disableClub(int clubId) {
-		ModelAndView mv = new ModelAndView();
-		clubDAO.disable(clubId);
-		mv.setViewName("deleteResult");
-		return mv;
-	}
+//	@RequestMapping(path = "delete.do", method = RequestMethod.GET)
+//	public ModelAndView disableClub(int clubId) {
+//		ModelAndView mv = new ModelAndView();
+//		clubDAO.enable(clubId);
+//		mv.setViewName("deleteResult");
+//		return mv;
+//	}
 	
-	@RequestMapping(path = "enable.do", method = RequestMethod.GET)
-	public ModelAndView enableClub(int clubId) {
+	@RequestMapping(path = "toggleEnabled.do", method = RequestMethod.GET)
+	public ModelAndView enableClub(int clubId, HttpSession session) {
 		ModelAndView mv = new ModelAndView();
 		clubDAO.enable(clubId);
+		mv.addObject("club", clubDAO.findById(clubId));
+		User loggedInUser = (User) session.getAttribute("loggedInUser");
+		session.setAttribute("loggedInUser", userDAO.getUserByUserNameAndPassword(loggedInUser.getUsername(), loggedInUser.getPassword()));
 		mv.setViewName("deleteResult");
 		return mv;
 	}
 	
 	@RequestMapping(path = "removeMember.do")
-	public ModelAndView removeMember(ClubMember member, Club club) {
+	public ModelAndView removeMember(int memberId, int clubId) {
 		ModelAndView mv = new ModelAndView();
-		clubDAO.removeMember(member, club);
+		clubDAO.removeMember(memberId, clubId);
+		Club club = clubDAO.findById(clubId);
+		mv.addObject("club", club);
 		mv.setViewName("clubHome");
 		return mv;
 	}
