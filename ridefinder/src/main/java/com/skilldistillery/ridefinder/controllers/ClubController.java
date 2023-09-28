@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.skilldistillery.ridefinder.data.ClubDAO;
 import com.skilldistillery.ridefinder.data.UserDAO;
 import com.skilldistillery.ridefinder.entities.Club;
+import com.skilldistillery.ridefinder.entities.ClubMember;
 import com.skilldistillery.ridefinder.entities.User;
 
 @Controller
@@ -114,6 +115,14 @@ public class ClubController {
 		ModelAndView mv = new ModelAndView();
 		clubDAO.enable(clubId);
 		mv.setViewName("deleteResult");
+		return mv;
+	}
+	
+	@RequestMapping(path = "removeMember.do")
+	public ModelAndView removeMember(ClubMember member, Club club) {
+		ModelAndView mv = new ModelAndView();
+		clubDAO.removeMember(member, club);
+		mv.setViewName("clubHome");
 		return mv;
 	}
 

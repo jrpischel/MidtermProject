@@ -47,7 +47,7 @@ public class LoginController {
 	public String logout(HttpSession session) {
 		session.removeAttribute("loggedInUser");
 		session.invalidate();
-		return "home";
+		return "redirect:home.do";
 	}
 	
 	

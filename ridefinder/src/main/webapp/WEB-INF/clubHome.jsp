@@ -47,6 +47,9 @@
 				<tr>
 					<td><a href="profile.do?userId=${m.user.id}">${m.nickname}</a></td>
 					<td>${m.user.firstName}</td>
+					<c:if test="${m.administrator == true}">
+					<td><a class="btn btn-dark" href="removeMember.do?Id=${club.id}" role="button">Remove</a></td>
+					</c:if>
 					
 				</tr>
 			</c:forEach>
