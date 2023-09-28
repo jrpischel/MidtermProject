@@ -114,7 +114,7 @@
 		<tbody>
 			<c:forEach var="ride" items="${loggedInUser.getRides()}">
 				<tr>
-				<td><a href="showRide.do?ride=${ride.id}">${ride.name}</a> </td>
+				<td><a href="rideDisplay.do?theRideId=${ride.id}">${ride.name}</a> </td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -132,7 +132,7 @@
 		<tbody>
 			<c:forEach var="rider" items="${loggedInUser.getRiders()}">
 				<tr>
-				<td><a href="displayRide.do?ride=${rider.ride.id}">${rider.ride.name}</a> </td>
+				<td><a href="rideDisplay.do?theRideId=${rider.ride.id}">${rider.ride.name}</a> </td>
 				</tr>
 			</c:forEach>
 		</tbody>
