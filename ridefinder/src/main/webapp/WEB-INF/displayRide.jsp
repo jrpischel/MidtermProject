@@ -44,7 +44,7 @@
 	<c:otherwise></c:otherwise>
 </c:choose>
 
-<h5>Ride Date: ${ ride.rideDate } </h5>
+<h5 style="padding-top: 12px;">Ride Date: ${ ride.rideDate } </h5>
 		<h3>Address</h3>
 	Street: <c:out value="${ride.getStartAddressId().getStreet()}" />
 			<br>
@@ -62,7 +62,7 @@
 <h3>Description</h3>
 <p>${ride.description}</p>
 <div class="text-center">
-<img src="${ride.photoURL}" class="img-fluid">
+<img src="${ride.photoURL}" class="img-fluid" style="padding-bottom: 25px;">
 </div>
 
 
