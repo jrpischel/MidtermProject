@@ -28,7 +28,7 @@
 
 	Nickname: <c:out value="${loggedInUser.getNickname()}" />
 			<br>
-	Joined Date: <c:out value="${loggedInUser.getCreateDate()}" />
+	Joined Date: <c:out value="${loggedInUser.getCreateDate().toLocalDate()}" />
 			<br>	
 	Description: <c:out value="${loggedInUser.getDescription()}" />
 			<br>
