@@ -38,6 +38,9 @@
 			<tr>
 				<th>Nick Name</th>
 				<th>First Name</th>
+				<c:if test="${loggedInUser.id == club.user.id && member.administrator != true}">
+				<th>Remove Member</th>
+				</c:if>
 				
 			</tr>
 		</thead>
@@ -47,7 +50,7 @@
 				<tr>
 					<td><a href="profile.do?userId=${member.user.id}">${member.user.nickname}</a></td>
 					<td>${member.user.firstName}</td>
-					<c:if test="${member.administrator != true}">
+					<c:if test="${loggedInUser.id == club.user.id && member.administrator != true}">
 					<td><a class="btn btn-dark" href="removeMember.do?clubId=${club.id}&memberId=${member.user.id}" role="button">Remove</a></td>
 					</c:if>
 					
