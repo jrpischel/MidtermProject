@@ -22,6 +22,11 @@
 		<input type="password" name="password" /> 
 		<input type="submit" value="Log In">
 	</form>
+	<br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br>
+	<br><br><br><br><br><br><br><br><br>
+	
 	<jsp:include page="bootstrapFoot.jsp"/>
 	</div>
 </body>

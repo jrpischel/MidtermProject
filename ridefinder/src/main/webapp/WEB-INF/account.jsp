@@ -8,11 +8,15 @@
 <jsp:include page="bootstrapHead.jsp" />
 <link rel="stylesheet" href="css/main.css" />
 <title>Account Profile</title>
+<style>
+.profile {color:#FFFFFF;}
+</style>
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
 	<%--Edit the file nav.jsp to change nav links --%>
 <div class="container">
+ <div class="profile">
 	<c:choose>
 		<c:when test="${!empty sessionScope.loggedInUser}">
 			
@@ -32,16 +36,18 @@
 			<br>	
 	Description: <c:out value="${loggedInUser.getDescription()}" />
 			<br>
-			<br>
 		<h3>Address</h3>
-			<br>
 	City: <c:out value="${loggedInUser.getAddress().getCity()}" />
 		    <br>
 	State: <c:out value="${loggedInUser.getAddress().getState()}" />
 			<br>
-		<h3>Clubs</h3>
-			<br>
+	</div>
 	
+	<div class="container text-center">
+		<div class="row align-items-start">
+			<div class="col">
+		<h3>Clubs You Created</h3>
+			<br>
 	<c:if test= "${! empty loggedInUser.clubs}">
 	 <table class="table table-striped table-hover">
 		<thead>
@@ -67,14 +73,14 @@
 		</tbody>
 	</table> 
 	</c:if>
-	<br>
-	<br>
+	</div>
+	
+	<div class="col">
+	<h3>Clubs You've Joined</h3>
 	 <table class="table table-striped table-hover">
 		<thead>
 		<tr>
-			
 			<th>Club Name</th>
-			
 		</tr>
 		</thead>
 		<tbody>
@@ -85,8 +91,13 @@
 			</c:forEach>
 		</tbody>
 	</table> 
-	<br>
-	<br>
+	</div>
+	</div>
+	</div>
+	
+	<div class="container text-center">
+		<div class="row align-items-start">
+			<div class="col">
 		<h3>Rides You Created</h3>
 			<br>
 	<table class="table table-striped table-hover">
@@ -103,8 +114,8 @@
 			</c:forEach>
 		</tbody>
 	</table> 
-	<br>
-	<br>
+	</div>
+	<div class="col">
 		<h3>Rides You Joined</h3>
 			<br>
 	<table class="table table-striped table-hover">
@@ -121,6 +132,10 @@
 			</c:forEach>
 		</tbody>
 	</table> 
+	</div>
+	</div>
+	</div>
+	
 		</c:when>
 		<c:otherwise>
 			<h1>Not logged in</h1>
