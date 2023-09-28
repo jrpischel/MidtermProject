@@ -65,8 +65,6 @@
 <img src="${ride.photoURL}" class="img-fluid">
 </div>
 
-
-
 <jsp:include page="bootstrapFoot.jsp"/>
 </div>
 </body>
