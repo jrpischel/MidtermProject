@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="css/main.css" />
 <title>Account Profile</title>
 </head>
+
+
 <body>
 <jsp:include page="navbar.jsp"/>
 	<%--Edit the file nav.jsp to change nav links --%>
@@ -16,7 +18,7 @@
 	<c:choose>
 		<c:when test="${!empty sessionScope.loggedInUser}">
 			
-			<h2>Your Account Details</h2>
+			<h2 class="newColor">Your Account Details</h2>
 			<img src="${loggedInUser.getPhotoURL() }" style="height:150px">
 			<br>
 	UserName: <c:out value="${loggedInUser.getUsername()}" />
