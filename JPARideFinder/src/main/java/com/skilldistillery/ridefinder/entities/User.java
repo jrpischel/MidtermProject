@@ -447,10 +447,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", password=" + password + ", enabled=" + enabled
-				+ ", role=" + role + ", firstName=" + firstName + ", nickname=" + nickname + ", photoUrl=" + photoUrl
-				+ ", description=" + description + ", shared=" + shared + ", lastName=" + lastName + ", createDate="
-				+ createDate + ", lastUpdate=" + lastUpdate + ", address=" + address + "]";
+		return "User " +  "\n Role:" + role + "\n First Name: " + firstName + "\n Nickname: " + nickname  
+				+ "\n Description: " + description +  "\n Last Name: " + lastName + "\n User Created Profile: "
+				+ createDate +  "\n Address: " + address;
 	}
 
 	
