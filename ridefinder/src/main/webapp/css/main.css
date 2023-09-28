@@ -1,8 +1,14 @@
 @charset "UTF-8";
 
+
 body {
 	background-color: darkred;
+ 	background-image: url('https://www.directasia.com/sites/default/files/media_images/10-Reasons-Why-Motorcycle-Owners-Have-It-Better-3-e1493363811301.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
+    background-size: cover;
 }
+
 
 .container {
 	padding-top: 80px;
