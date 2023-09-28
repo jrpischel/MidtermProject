@@ -76,7 +76,7 @@ public class AccountController {
 		
 		user.setAddress(newAddress);
 		
-		userDAO.updateUser(user);
+		user = userDAO.updateUser(user);
 		
 		
 		session.setAttribute("loggedInUser", user);

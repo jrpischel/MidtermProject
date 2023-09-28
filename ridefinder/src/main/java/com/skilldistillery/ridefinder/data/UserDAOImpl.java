@@ -80,7 +80,6 @@ public class UserDAOImpl implements UserDAO {
 		user.setPhotoURL(updatedUser.getPhotoURL());
 		user.setDescription(updatedUser.getDescription());
 		user.setShared(updatedUser.isShared());
-		
 		user.setAddress(updatedUser.getAddress());
 		
 		// user.setLastUpdate(LocalDateTime.now());
