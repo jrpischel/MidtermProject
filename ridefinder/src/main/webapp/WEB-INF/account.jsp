@@ -49,13 +49,13 @@
 		<div class="row align-items-start">
 			<div class="col">
 		<h3>Clubs You Created</h3>
-			<br>
+		<br>
 	<c:if test= "${! empty loggedInUser.clubs}">
 	 <table class="table table-striped table-hover">
 		<thead>
 		<tr>
 			<th>Club Name</th>
-			<th>Delete</th>
+			<th>Disable</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -79,16 +79,19 @@
 	
 	<div class="col">
 	<h3>Clubs You've Joined</h3>
+	<br>
 	 <table class="table table-striped table-hover">
 		<thead>
 		<tr>
 			<th>Club Name</th>
+			<th>Quit Club</th>
 		</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="clubMember" items="${loggedInUser.clubMembers}">
 				<tr>
 				<td><a href="clubHome.do?Id=${clubMember.club.id}">${clubMember.club.name}</a> </td>
+				<td><a class="btn btn-dark" href="removeSelf.do?clubId=${clubMember.club.id}&memberId=${clubMember.user.id}" role="button">Remove</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
