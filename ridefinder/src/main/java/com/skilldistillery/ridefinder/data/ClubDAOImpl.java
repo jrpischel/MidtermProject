@@ -17,6 +17,7 @@ import com.skilldistillery.ridefinder.entities.User;
 @Service
 @Transactional
 public class ClubDAOImpl implements ClubDAO {
+	
 	@PersistenceContext
 	private EntityManager em;
 
@@ -66,12 +67,12 @@ public class ClubDAOImpl implements ClubDAO {
 		return dbClub;
 	}
 
-	@Override
-	public boolean disable(int id) {
-		Club dbClub = em.find(Club.class, id);
-		dbClub.setEnabled(false);
-		return true;
-	}
+//	@Override
+//	public boolean disable(int id) {
+//		Club dbClub = em.find(Club.class, id);
+//		dbClub.setEnabled(false);
+//		return true;
+//	}
 
 	@Override
 	public Club findById(int clubId) {
@@ -81,8 +82,8 @@ public class ClubDAOImpl implements ClubDAO {
 	@Override
 	public boolean enable(int id) {
 		Club dbClub = em.find(Club.class, id);
-		dbClub.setEnabled(true);
-		return true;
+		dbClub.setEnabled(!dbClub.isEnabled());
+		return dbClub.isEnabled();
 	}
 
 	@Override
@@ -95,9 +96,19 @@ public class ClubDAOImpl implements ClubDAO {
 			member.setId(id);
 			member.setClub(club);
 			member.setUser(user);
-			member.setAdministrator(true);
+			member.setAdministrator(false);
 			member.setNickname(user.getNickname());
 			em.persist(member);
+			return true;
+		}
+		return false;
+	}
+
+	@Override
+	public boolean removeMember(int userId, int clubId) {
+	ClubMember	managedMember = em.find(ClubMember.class, new ClubMemberId(userId, clubId));
+		if(managedMember != null) {
+			em.remove(managedMember);
 			return true;
 		}
 		return false;

@@ -61,7 +61,7 @@
 			<br>
 			
 			
-			<label for="skillLevel">Choose your skill level:</label>
+			<label for="skillLevel">Choose the skill level for this ride:</label>
 		<select name="skillLevelId" id="skillLevel">
   			<option value="1">Beginner</option>
   			<option value="2">Intermediate</option>
@@ -70,6 +70,11 @@
 			<br>
 			<br>
 			
+			<div class="input-group">
+     		<span class="input-group-text">Description</span>
+     		<textarea class="form-control" aria-label="With textarea" name="description" id="description"></textarea>
+   			</div>
+   			
 			<h2>Add a photo for this ride</h2>
 			<label for="photoURL">photo:</label>
 			<input type="text" name="photoURL" id="photoURL">

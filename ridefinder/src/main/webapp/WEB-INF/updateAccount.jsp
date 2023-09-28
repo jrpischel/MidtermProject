@@ -58,11 +58,11 @@
 
 			<div>
 			<label for="city">City:</label>
-			<input type="text" name="city" id="city" value="${city}">
+			<input type="text" name="city" id="city" value="${user.address.city}">
    			</div>
 			<div>
 			<label for="state">State:</label>
-			<input type="text" name="state" id="state" value="${state}">
+			<input type="text" name="state" id="state" value="${user.address.state}">
    			</div>
 
 			

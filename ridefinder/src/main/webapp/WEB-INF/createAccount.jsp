@@ -7,13 +7,13 @@
 <meta charset="UTF-8">
 <jsp:include page="bootstrapHead.jsp"/>
 <link rel="stylesheet" href="css/main.css"/>
-<title>Add A Pet</title>
+<title>Create An Account</title>
 </head>
 <body>
 <jsp:include page="navbar.jsp"/>
-
-<h1>Add your new pet</h1>
-	<p> "*" indicates required fields</p><br>
+<div class="container">
+<h1>Create your new account</h1>
+	<br>
 
 <form action="makeAccount.do" method="post">
 
@@ -35,6 +35,7 @@
 
 
 </form>
+</div>
 <jsp:include page="bootstrapFoot.jsp"/>
 </body>
 </html>
