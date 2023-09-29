@@ -13,7 +13,7 @@
 <jsp:include page="navbar.jsp"/>
 <div class="container">
 <h1>Add your new club</h1>
-	<p> "*" indicates required fields</p><br>
+	
 
 <form action="makeClub.do" method="post">
 
